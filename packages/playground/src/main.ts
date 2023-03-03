@@ -2,6 +2,6 @@ import { createApp } from 'vue'
 
 import App from './App.vue'
 
-import Vue3Plugin from 'vue3-plugin'
+import Vue3IconPicker from 'vue3-icon-picker'
 
-createApp(App).use(Vue3Plugin).mount('#app')
+createApp(App).use(Vue3IconPicker).mount('#app')

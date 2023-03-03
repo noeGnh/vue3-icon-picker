@@ -6,10 +6,10 @@
 		},
 		// Plugin
 		{
-			"path": "./packages/vue3-plugin/tsconfig.app.json"
+			"path": "./packages/vue3-icon-picker/tsconfig.app.json"
 		},
 		{
-			"path": "./packages/vue3-plugin/tsconfig.vitest.json"
+			"path": "./packages/vue3-icon-picker/tsconfig.vitest.json"
 		},
 		// Playground
 		{

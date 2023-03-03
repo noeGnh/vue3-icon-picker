@@ -1,5 +1,5 @@
 {
-	"name": "vue3-plugin-monorepo-template",
+	"name": "vue3-icon-picker-monorepo-template",
 	"version": "0.1.0",
 	"description": "A monorepo template for developing Vue libraries",
 	"author": "Noé Gnanih <noegnanih@gmail.com>",
@@ -11,9 +11,9 @@
 	"scripts": {
 		"docs": "pnpm -F docs run dev",
 		"dev": "pnpm -F playground run dev",
-		"test": "pnpm -F vue3-plugin run test",
+		"test": "pnpm -F vue3-icon-picker run test",
 		"build": "pnpm build-plugin && pnpm build-playground && pnpm build-docs",
-		"build-plugin": "pnpm -r -F vue3-plugin run build",
+		"build-plugin": "pnpm -r -F vue3-icon-picker run build",
 		"build-playground": "pnpm -F playground run build",
 		"build-docs": "pnpm -F docs run build",
 		"lint": "eslint --ext .js,.ts,.vue .",

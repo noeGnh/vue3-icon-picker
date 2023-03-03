@@ -46,7 +46,7 @@ export default defineConfig({
 	],
 	build: {
 		lib: {
-			name: 'Vue3Plugin',
+			name: 'Vue3IconPicker',
 			entry: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
 			formats: ['es', 'cjs', 'iife'],
 			fileName: (format) => {

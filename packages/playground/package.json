@@ -9,7 +9,7 @@
 	},
 	"dependencies": {
 		"vue": "^3.2.45",
-		"vue3-plugin": "workspace:*"
+		"vue3-icon-picker": "workspace:*"
 	},
 	"devDependencies": {
 		"vite": "^4.1.0",
