@@ -1,6 +1,6 @@
 {
 	"name": "vue3-icon-picker",
-	"description": "Plugin description",
+	"description": "Icon picker",
 	"version": "0.0.1",
 	"private": false,
 	"author": "Noé Gnanih <noegnanih@gmail.com>",
@@ -35,6 +35,16 @@
 	},
 	"peerDependencies": {
 		"vue": "^3.2.45"
+	},
+	"dependencies": {
+		"@sicons/antd": "^0.12.0",
+		"@sicons/carbon": "^0.12.0",
+		"@sicons/fa": "^0.12.0",
+		"@sicons/fluent": "^0.12.0",
+		"@sicons/ionicons4": "^0.12.0",
+		"@sicons/ionicons5": "^0.12.0",
+		"@sicons/material": "^0.12.0",
+		"@sicons/tabler": "^0.12.0"
 	},
 	"devDependencies": {
 		"auto-changelog": "^2.4.0",

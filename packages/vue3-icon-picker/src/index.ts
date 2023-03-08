@@ -1,13 +1,13 @@
 import type { App } from 'vue'
 
-import HelloWorld from './components/HelloWorld.vue'
+import Vue3IconPicker from './components/Picker.vue'
 
-export { HelloWorld }
+export { Vue3IconPicker }
 
 const plugin = {
 	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	install(app: App, options?: any) {
-		app.component('HelloWorld', HelloWorld)
+		app.component('Vue3IconPicker', Vue3IconPicker)
 	},
 }
 

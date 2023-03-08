@@ -82,11 +82,27 @@ importers:
 
   packages/vue3-icon-picker:
     specifiers:
+      '@sicons/antd': ^0.12.0
+      '@sicons/carbon': ^0.12.0
+      '@sicons/fa': ^0.12.0
+      '@sicons/fluent': ^0.12.0
+      '@sicons/ionicons4': ^0.12.0
+      '@sicons/ionicons5': ^0.12.0
+      '@sicons/material': ^0.12.0
+      '@sicons/tabler': ^0.12.0
       auto-changelog: ^2.4.0
       vite: ^4.1.0
       vitest: ^0.28.3
       vue: ^3.2.45
     dependencies:
+      '@sicons/antd': 0.12.0
+      '@sicons/carbon': 0.12.0
+      '@sicons/fa': 0.12.0
+      '@sicons/fluent': 0.12.0
+      '@sicons/ionicons4': 0.12.0
+      '@sicons/ionicons5': 0.12.0
+      '@sicons/material': 0.12.0
+      '@sicons/tabler': 0.12.0
       vue: 3.2.47
     devDependencies:
       auto-changelog: 2.4.0
@@ -979,6 +995,38 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
     dev: true
+
+  /@sicons/antd/0.12.0:
+    resolution: {integrity: sha512-nLm11Q29BPXlYXVnIYXUfahtrWFiNwv4I11vl4afIQyrlUVcoerjNLDseHKXhDkjQIVCwBD89UkFB+KuXbpdYQ==}
+    dev: false
+
+  /@sicons/carbon/0.12.0:
+    resolution: {integrity: sha512-SqJQSCWeCPM+V2cdJZSEXfHSsdfHb94IlDmpdyf9O0lBrW45dGlv0FRIRS5esMoffeg7s2ieWyzj5yEH5Qd35Q==}
+    dev: false
+
+  /@sicons/fa/0.12.0:
+    resolution: {integrity: sha512-YIesxyC8Z+aTeog9ZJPV1D0r9c2uz9NiRnhL+I3FhQw7MT4/S8Qovjb04H/BadmSL/O15lwpr8MWe6aC09zsZQ==}
+    dev: false
+
+  /@sicons/fluent/0.12.0:
+    resolution: {integrity: sha512-qSIf2hfHkC4DLkc6aI9878JLOHKQBCn9zxobdfyKMuTV6FyyKyoSagwnf46WUUhOfEtXz91udsYcAY2Y3ePjsA==}
+    dev: false
+
+  /@sicons/ionicons4/0.12.0:
+    resolution: {integrity: sha512-dLi80S2Q31Rs2OwGRE8GezP60TmtYbDNn7HVRkkO5o8EuVD+em/I0G/SyK94lyQZH7lW3UuxVyVQAj6ehOOGJA==}
+    dev: false
+
+  /@sicons/ionicons5/0.12.0:
+    resolution: {integrity: sha512-QUCY3vgysBaQZXd6yYR1JDthpxFfwh6RVKUDaLPq2pooabeZtxvC6XI1jVJIhPDj9UP+P0MfRSrZp9BhdTG82w==}
+    dev: false
+
+  /@sicons/material/0.12.0:
+    resolution: {integrity: sha512-6KJiVna9aW3oKc/Fe2yX/bqM/Svu70nLWl3QRsSY4gMdBDnacxh7F1QS64wERjcl+6aux81Pr2JkWTfp8L0tmw==}
+    dev: false
+
+  /@sicons/tabler/0.12.0:
+    resolution: {integrity: sha512-ccTHbVUc5l+tu9MKM+YxL5DxqvmMkZo8Txjvs51giWdMQtZE5cryxBommaR654f6ELPexJJw1PNBiiMlD91XDw==}
+    dev: false
 
   /@tootallnate/once/2.0.0:
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -4497,7 +4545,7 @@ packages:
     dependencies:
       '@babel/core': 7.21.0
       '@babel/standalone': 7.21.2
-      '@babel/types': 7.20.7
+      '@babel/types': 7.21.2
       scule: 1.0.0
     transitivePeerDependencies:
       - supports-color
