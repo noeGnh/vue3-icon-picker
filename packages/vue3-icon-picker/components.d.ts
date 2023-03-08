@@ -9,7 +9,7 @@ export {}
 
 declare module '@vue/runtime-core' {
   export interface GlobalComponents {
-    Icon: typeof import('./src/components/Icon.vue')['default']
+    ItemIcon: typeof import('./src/components/ItemIcon.vue')['default']
     Picker: typeof import('./src/components/Picker.vue')['default']
   }
 }
