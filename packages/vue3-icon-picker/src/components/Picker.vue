@@ -1,9 +1,13 @@
 <script setup lang="ts">
 	import iconsRawList from '../assets/icons.json'
 	import type { IconLibrary, Icon } from '../interface'
-	import { useDetectOutsideClick } from '../utils'
+
+	import { useElementSize, onClickOutside } from '@vueuse/core'
 
 	import ItemIcon from './ItemIcon.vue'
+
+	import { RecycleScroller } from 'vue-virtual-scroller'
+	import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
 	export interface Props {
 		searchPlaceholder?: string
@@ -36,8 +40,8 @@
 
 	const activeColor = ref(props.activeColor)
 	const searchQuery = ref<string>('')
+	const iconsList = ref<Icon[]>([])
 	const open = ref<boolean>(false)
-	const iconsList: Icon[] = []
 
 	const extractIconData = (key: string) => {
 		const parts = key.split('__')
@@ -45,17 +49,31 @@
 		return [parts[0], parts.length > 1 ? parts[1] : undefined]
 	}
 
-	for (const [key, value] of Object.entries(iconsRawList)) {
-		const [name, library] = extractIconData(key)
-		iconsList.push({
-			name: name,
-			svgCode: value,
-			library: library,
-		})
+	const oneMoment = () => {
+		return new Promise((resolve) => setTimeout(resolve))
 	}
 
+	const prepareData = async () => {
+		let i = 1
+		for (const [key, value] of Object.entries(iconsRawList)) {
+			if (i && i % 5000 === 0) {
+				await oneMoment()
+			}
+			const [name, library] = extractIconData(key)
+			iconsList.value.push({
+				id: i,
+				name: name,
+				svgCode: value,
+				library: library,
+			})
+			i += 1
+		}
+	}
+
+	prepareData()
+
 	const filteredIcons = computed(() => {
-		return iconsList.filter(
+		return iconsList.value.filter(
 			(icon) =>
 				((typeof props.iconLibrary === 'string' &&
 					icon.library == props.iconLibrary) ||
@@ -114,15 +132,15 @@
 		}
 	}
 
-	const pickerRef = ref()
+	const picker = ref()
+	onClickOutside(picker, () => (open.value = false))
 
-	useDetectOutsideClick(pickerRef, () => {
-		open.value = false
-	})
+	const scroller = ref()
+	const { width } = useElementSize(scroller)
 </script>
 
 <template>
-	<div ref="pickerRef" class="v3ip__custom-select" @blur="open = false">
+	<div ref="picker" class="v3ip__custom-select" @blur="open = false">
 		<div
 			class="v3ip__selected"
 			:class="{ open: open, disabled: props.disabled }"
@@ -171,24 +189,30 @@
 			</template>
 			<span v-else class="placeholder">{{ props.placeholder }}</span>
 		</div>
-		<transition name="slide" mode="out-in">
-			<div v-show="open && props.displaySearch" class="v3ip__search">
-				<input
-					v-model="searchQuery"
-					type="text"
-					name="search"
-					:placeholder="props.searchPlaceholder" />
-			</div>
-		</transition>
-		<transition name="slide" mode="out-in">
-			<div v-show="open" class="v3ip__items">
-				<div
-					v-for="(icon, i) in filteredIcons"
-					:key="i"
-					:class="{ active: isIconSelected(icon) }"
-					@click="onSelected(icon)">
-					<item-icon :svg="icon.svgCode" :height="24" />
+		<transition name="fade">
+			<div v-show="open">
+				<div v-show="props.displaySearch" class="v3ip__search">
+					<input
+						v-model="searchQuery"
+						type="text"
+						name="search"
+						:placeholder="props.searchPlaceholder" />
 				</div>
+				<RecycleScroller
+					ref="scroller"
+					class="v3ip__items"
+					:items="filteredIcons"
+					:item-size="40"
+					:grid-items="4"
+					:item-secondary-size="width / 4">
+					<template #default="{ item }">
+						<div
+							:class="{ active: isIconSelected(item) }"
+							@click="onSelected(item)">
+							<item-icon :svg="item.svgCode" :height="24" />
+						</div>
+					</template>
+				</RecycleScroller>
 			</div>
 		</transition>
 	</div>
@@ -277,10 +301,7 @@
 		z-index: 1;
 		max-height: 225px;
 		overflow-y: auto;
-		display: grid;
-		grid-template-columns: 2fr 2fr 2fr 2fr;
-		grid-column-gap: 5px;
-		grid-row-gap: 5px;
+		display: flex;
 	}
 
 	.v3ip__custom-select .v3ip__items div {
@@ -311,10 +332,10 @@
 	.v3ip__search input,
 	.v3ip__search input:focus-visible {
 		width: 100%;
-		border-top: none;
 		border-radius: 0;
 		line-height: 30px;
 		border: 1px solid #c2c2c2;
+		border-top: none;
 		padding-right: 1em;
 		padding-left: 1em;
 	}
@@ -326,37 +347,13 @@
 </style>
 
 <style scoped>
-	.slide-enter-active {
-		-moz-transition-duration: 0.3s;
-		-webkit-transition-duration: 0.3s;
-		-o-transition-duration: 0.3s;
-		transition-duration: 0.3s;
-		-moz-transition-timing-function: ease-in;
-		-webkit-transition-timing-function: ease-in;
-		-o-transition-timing-function: ease-in;
-		transition-timing-function: ease-in;
+	.fade-enter-active,
+	.fade-leave-active {
+		transition: opacity 0.25s ease;
 	}
 
-	.slide-leave-active {
-		-moz-transition-duration: 0.3s;
-		-webkit-transition-duration: 0.3s;
-		-o-transition-duration: 0.3s;
-		transition-duration: 0.3s;
-		-moz-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-		-webkit-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-		-o-transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-		transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
-	}
-
-	.slide-enter-to,
-	.slide-leave {
-		max-height: 100px;
-		overflow: hidden;
-	}
-
-	.slide-enter,
-	.slide-leave-to {
-		overflow: hidden;
-		max-height: 0;
+	.fade-enter-from,
+	.fade-leave-to {
+		opacity: 0;
 	}
 </style>

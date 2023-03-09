@@ -9,6 +9,7 @@ export type IconLibrary =
 	| 'tabler'
 
 export interface Icon {
+	id: number
 	name: string | undefined
 	svgCode: string
 	library: string | undefined
