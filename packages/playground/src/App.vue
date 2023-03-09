@@ -73,7 +73,7 @@
 		display: flex;
 		justify-content: center;
 		box-sizing: border-box;
-		padding-top: 75px;
+		padding-top: 25px;
 	}
 
 	.container {
