@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import AutoImport from 'unplugin-auto-import/vite'
 process.env.NODE_ENV
 export default defineConfig({
+	base: process.env.NODE_ENV === 'production' ? '/vue3-icon-picker' : '/',
 	plugins: [
 		vue(),
 		AutoImport({

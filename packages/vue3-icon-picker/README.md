@@ -16,6 +16,10 @@ npm i vue3-icon-picker
 
 This package use icons from [`xicons`](https://github.com/07akioni/xicons) with SVG components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons), [`material-design-icons`](https://github.com/google/material-design-icons), [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome), [`tabler-icons`](https://github.com/tabler/tabler-icons) and [`carbon`](https://github.com/carbon-design-system/carbon/tree/main/packages/icons). Check this website for view icons list: <https://www.xicons.org>.
 
+## Demo
+
+View the live demo [`here`](https://noegnh.github.io/vue3-icon-picker/)
+
 ## Usage
 
 Add this package to your project main.js:
@@ -48,6 +52,7 @@ createApp(App).use(Vue3IconPicker).mount('#app')
 | selectedItemsToDisplay | number                                                                                  | Number of selected icons to display when multiple selection is enabled                   | 9         | No       |
 | iconLibrary            | 'antd' / 'carbon' / 'fa' / 'fluent' / 'ionicons4' / 'ionicons5' / 'material' / 'tabler' | Icon library to display. This property can take an array of several libraries to display | 'fa'      | No       |
 | selectedIconBgColor    | string                                                                                  | Selected icon(s) background color                                                        | '#d3d3d3' | No       |
+| selectedIconColor      | string                                                                                  | Selected icon(s) color                                                                   | '#000000' | No       |
 | clearable              | boolean                                                                                 | Make selected icon clearable when multiple is false                                      | false     | No       |
 | disabled               | boolean                                                                                 | Disable component                                                                        | false     | No       |
 | displaySearch          | boolean                                                                                 | Display search input                                                                     | true      | No       |

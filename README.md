@@ -16,6 +16,10 @@ npm i vue3-icon-picker
 
 This package use icons from [`xicons`](https://github.com/07akioni/xicons) with SVG components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons), [`material-design-icons`](https://github.com/google/material-design-icons), [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome), [`tabler-icons`](https://github.com/tabler/tabler-icons) and [`carbon`](https://github.com/carbon-design-system/carbon/tree/main/packages/icons). Check this website for view icons list: <https://www.xicons.org>.
 
+## Demo
+
+View the live demo [`here`](https://noegnh.github.io/vue3-icon-picker/)
+
 ## Usage
 
 Add this package to your project main.js:
