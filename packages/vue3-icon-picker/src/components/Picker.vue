@@ -305,6 +305,8 @@
 		width: 100%;
 		display: flex;
 		justify-content: center;
+		position: relative;
+		z-index: 1;
 	}
 	.v3ip__search input,
 	.v3ip__search input:focus-visible {
