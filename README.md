@@ -39,19 +39,19 @@ createApp(App).use(Vue3IconPicker).mount('#app')
 
 ## Props
 
-| Name             | Type                                                 | Description                    | Default   | Required |
-| ---------------- | ---------------------------------------------------- | ------------------------------ | --------- | -------- |
-| v-model              | string / string[]                                               | Selection                   | null | Yes      |
-| placeholder              | string                                               | Input placeholder          | undefined | No       |
-| multiple      | boolean                                               | Enable multiple selection when set to true          | false | No       |
-| limit           | number                                      | Maximum number of selections when multiple selection is enabled                   | Infinity | No       |
-| selectedItemsToDisplay            | number                                      | Number of selected icons to display when multiple selection is enabled                    | 9 | No       |
-| iconLibrary           | 'antd' / 'carbon' / 'fa' / 'fluent' / 'ionicons4' / 'ionicons5' / 'material' / 'tabler'                                               | Icon library to display. This property can take an array of several libraries to display but it is not recommended because it could cause performance issues                     | 'fa'        | No       |
-| activeColor        | string | Selected icon(s) highlight color           | '#d3d3d3'    | No       |
-| clearable | boolean                     | Make selected icon clearable when multiple is false | false | No       |
-| disabled | boolean                     | Disable component | false | No       |
-| displaySearch | boolean                     | Display search input | true | No       |
-| searchPlaceholder | string                     | Search input placeholder | 'Search' | No       |
+| Name                   | Type                                                                                    | Description                                                                              | Default   | Required |
+| ---------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | --------- | -------- |
+| v-model                | string / string[]                                                                       | Selection                                                                                | null      | Yes      |
+| placeholder            | string                                                                                  | Input placeholder                                                                        | undefined | No       |
+| multiple               | boolean                                                                                 | Enable multiple selection when set to true                                               | false     | No       |
+| multipleLimit          | number                                                                                  | Maximum number of selections when multiple selection is enabled                          | Infinity  | No       |
+| selectedItemsToDisplay | number                                                                                  | Number of selected icons to display when multiple selection is enabled                   | 9         | No       |
+| iconLibrary            | 'antd' / 'carbon' / 'fa' / 'fluent' / 'ionicons4' / 'ionicons5' / 'material' / 'tabler' | Icon library to display. This property can take an array of several libraries to display | 'fa'      | No       |
+| activeColor            | string                                                                                  | Selected icon(s) highlight color                                                         | '#d3d3d3' | No       |
+| clearable              | boolean                                                                                 | Make selected icon clearable when multiple is false                                      | false     | No       |
+| disabled               | boolean                                                                                 | Disable component                                                                        | false     | No       |
+| displaySearch          | boolean                                                                                 | Display search input                                                                     | true      | No       |
+| searchPlaceholder      | string                                                                                  | Search input placeholder                                                                 | 'Search'  | No       |
 
 ## Contributing
 

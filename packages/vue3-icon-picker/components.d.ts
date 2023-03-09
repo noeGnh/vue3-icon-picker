@@ -8,8 +8,8 @@ import '@vue/runtime-core'
 export {}
 
 declare module '@vue/runtime-core' {
-  export interface GlobalComponents {
-    ItemIcon: typeof import('./src/components/ItemIcon.vue')['default']
-    Picker: typeof import('./src/components/Picker.vue')['default']
-  }
+	export interface GlobalComponents {
+		ItemIcon: typeof import('./src/components/ItemIcon.vue')['default']
+		Picker: typeof import('./src/components/Picker.vue')['default']
+	}
 }

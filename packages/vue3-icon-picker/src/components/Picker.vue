@@ -17,7 +17,7 @@
 		iconLibrary?: IconLibrary | 'all' | IconLibrary[]
 		activeColor?: string
 		displaySearch?: boolean
-		limit?: number
+		multipleLimit?: number
 		disabled?: boolean
 		selectedItemsToDisplay?: number
 		clearable?: boolean
@@ -30,7 +30,7 @@
 		iconLibrary: 'fa',
 		activeColor: '#d3d3d3',
 		displaySearch: true,
-		limit: Infinity,
+		multipleLimit: Infinity,
 		disabled: false,
 		selectedItemsToDisplay: 9,
 		clearable: false,
@@ -109,14 +109,14 @@
 					if (index > -1) {
 						tempArray.splice(index, 1)
 					} else {
-						if (props.modelValue.length < props.limit) {
+						if (props.modelValue.length < props.multipleLimit) {
 							tempArray.push(icon.svgCode)
 						}
 					}
 					emits('update:modelValue', tempArray)
 					emits('change', tempArray, icon)
 				} else {
-					if (props.limit > 0) {
+					if (props.multipleLimit > 0) {
 						emits('update:modelValue', [icon.svgCode])
 						emits('change', [icon.svgCode], icon)
 					}
