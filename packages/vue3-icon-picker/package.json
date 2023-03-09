@@ -39,9 +39,9 @@
 	},
 	"devDependencies": {
 		"auto-changelog": "^2.4.0",
+		"icon-file-loader": "workspace:*",
 		"vite": "^4.1.0",
-		"vitest": "^0.28.3",
-		"icon-file-loader": "workspace:*"
+		"vitest": "^0.28.3"
 	},
 	"repository": {
 		"type": "git",
