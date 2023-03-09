@@ -15,7 +15,7 @@
 		modelValue: string | string[] | null
 		multiple?: boolean
 		iconLibrary?: IconLibrary | 'all' | IconLibrary[]
-		activeColor?: string
+		selectedIconBgColor?: string
 		displaySearch?: boolean
 		multipleLimit?: number
 		disabled?: boolean
@@ -28,7 +28,7 @@
 		placeholder: undefined,
 		multiple: false,
 		iconLibrary: 'fa',
-		activeColor: '#d3d3d3',
+		selectedIconBgColor: '#d3d3d3',
 		displaySearch: true,
 		multipleLimit: Infinity,
 		disabled: false,
@@ -38,7 +38,7 @@
 
 	const emits = defineEmits(['change', 'update:modelValue'])
 
-	const activeColor = ref(props.activeColor)
+	const selectedIconBgColor = ref(props.selectedIconBgColor)
 	const searchQuery = ref<string>('')
 	const iconsList = ref<Icon[]>([])
 	const open = ref<boolean>(false)
@@ -319,7 +319,7 @@
 	}
 
 	.v3ip__custom-select .v3ip__items div.active {
-		background-color: v-bind(activeColor);
+		background-color: v-bind(selectedIconBgColor);
 	}
 
 	.v3ip__search {
