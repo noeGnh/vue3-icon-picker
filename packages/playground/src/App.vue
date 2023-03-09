@@ -60,6 +60,8 @@
 			:icon-library="selectedLibraries"
 			:multiple="multipleSelection"
 			:clearable="!multipleSelection"
+			selected-icon-bg-color="indigo"
+			selected-icon-color="white"
 			placeholder="Select icon(s)"
 			style="width: 350px; margin-top: 15px" />
 	</section>
@@ -98,6 +100,7 @@
 	}
 
 	.selected {
-		background-color: aqua;
+		background-color: indigo;
+		color: white;
 	}
 </style>

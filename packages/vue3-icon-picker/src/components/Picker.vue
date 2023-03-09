@@ -16,6 +16,7 @@
 		multiple?: boolean
 		iconLibrary?: IconLibrary | 'all' | IconLibrary[]
 		selectedIconBgColor?: string
+		selectedIconColor?: string
 		displaySearch?: boolean
 		multipleLimit?: number
 		disabled?: boolean
@@ -29,6 +30,7 @@
 		multiple: false,
 		iconLibrary: 'fa',
 		selectedIconBgColor: '#d3d3d3',
+		selectedIconColor: '#000000',
 		displaySearch: true,
 		multipleLimit: Infinity,
 		disabled: false,
@@ -209,7 +211,12 @@
 						<div
 							:class="{ active: isIconSelected(item) }"
 							@click="onSelected(item)">
-							<item-icon :svg="item.svgCode" :height="24" />
+							<item-icon
+								:svg="item.svgCode"
+								:height="24"
+								:color="
+									isIconSelected(item) ? props.selectedIconColor : undefined
+								" />
 						</div>
 					</template>
 				</RecycleScroller>

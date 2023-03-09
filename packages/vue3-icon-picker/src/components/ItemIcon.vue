@@ -12,8 +12,13 @@
 		height: undefined,
 	})
 
-	const width = typeof props.width == 'number' ? props.width + 'px' : 'unset'
-	const height = typeof props.height == 'number' ? props.height + 'px' : 'unset'
+	const color = computed(() => props.color)
+	const width = computed(() =>
+		typeof props.width == 'number' ? props.width + 'px' : 'unset'
+	)
+	const height = computed(() =>
+		typeof props.height == 'number' ? props.height + 'px' : 'unset'
+	)
 </script>
 
 <template>
@@ -23,6 +28,7 @@
 <style scoped>
 	::v-deep(svg) {
 		display: block;
+		color: v-bind(color);
 		width: v-bind(width);
 		height: v-bind(height);
 	}
