@@ -8,9 +8,11 @@ export type IconLibrary =
 	| 'material'
 	| 'tabler'
 
+export type ValueType = 'name' | 'svg'
+
 export interface Icon {
 	id: number
-	name: string | undefined
+	name: string
 	svgCode: string
-	library: string | undefined
+	library: string
 }

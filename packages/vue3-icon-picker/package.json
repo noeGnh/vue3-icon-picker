@@ -51,7 +51,12 @@
 		"type": "git",
 		"url": "git+https://github.com"
 	},
-	"keywords": [],
+	"keywords": [
+		"vue",
+		"vue3",
+		"icon",
+		"picker"
+	],
 	"bugs": {
 		"url": "https://github.com/issues"
 	},

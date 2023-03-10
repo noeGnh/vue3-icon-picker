@@ -1,6 +1,6 @@
 <script setup lang="ts">
 	import iconsRawList from '../assets/icons.json'
-	import type { IconLibrary, Icon } from '../interface'
+	import type { IconLibrary, ValueType, Icon } from '../interface'
 
 	import { useElementSize, onClickOutside } from '@vueuse/core'
 
@@ -22,6 +22,7 @@
 		disabled?: boolean
 		selectedItemsToDisplay?: number
 		clearable?: boolean
+		valueType?: ValueType
 	}
 
 	const props = withDefaults(defineProps<Props>(), {
@@ -36,6 +37,7 @@
 		disabled: false,
 		selectedItemsToDisplay: 9,
 		clearable: false,
+		valueType: 'svg',
 	})
 
 	const emits = defineEmits(['change', 'update:modelValue'])
@@ -48,7 +50,7 @@
 	const extractIconData = (key: string) => {
 		const parts = key.split('__')
 
-		return [parts[0], parts.length > 1 ? parts[1] : undefined]
+		return [parts[0], parts.length > 1 ? parts[1] : '']
 	}
 
 	const oneMoment = () => {
@@ -87,16 +89,26 @@
 		)
 	})
 
+	const getValue = (icon: Icon) => {
+		return props.valueType == 'name' ? icon.name : icon.svgCode
+	}
+
+	const getSvgCode = (value: string) => {
+		return props.valueType == 'name'
+			? iconsList.value?.find((icon) => icon.name == value)?.svgCode || ''
+			: value
+	}
+
 	const isIconSelected = (icon: Icon) => {
 		if (props.multiple) {
 			if (props.modelValue && props.modelValue.length)
 				return (
 					(props.modelValue as string[]).findIndex(
-						(i: string) => i == icon.svgCode
+						(i: string) => i == getValue(icon)
 					) > -1
 				)
 			return false
-		} else return props.modelValue == icon.svgCode
+		} else return props.modelValue == getValue(icon)
 	}
 
 	const onSelected = (icon: Icon | undefined) => {
@@ -106,28 +118,29 @@
 					const tempArray = props.modelValue as string[]
 
 					const index = (props.modelValue as string[]).findIndex(
-						(i: string) => i == icon.svgCode
+						(i: string) => i == getValue(icon)
 					)
 					if (index > -1) {
 						tempArray.splice(index, 1)
 					} else {
 						if (props.modelValue.length < props.multipleLimit) {
-							tempArray.push(icon.svgCode)
+							if (typeof getValue(icon) != 'undefined')
+								tempArray.push(getValue(icon) as string)
 						}
 					}
 					emits('update:modelValue', tempArray)
 					emits('change', tempArray, icon)
 				} else {
 					if (props.multipleLimit > 0) {
-						emits('update:modelValue', [icon.svgCode])
-						emits('change', [icon.svgCode], icon)
+						emits('update:modelValue', [getValue(icon)])
+						emits('change', [getValue(icon)], icon)
 					}
 				}
 			} else {
-				if (icon.svgCode == props.modelValue) {
+				if (getValue(icon) == props.modelValue) {
 					if (props.clearable) emits('update:modelValue', null)
 				} else {
-					emits('update:modelValue', icon.svgCode)
+					emits('update:modelValue', getValue(icon))
 				}
 				emits('change', icon)
 			}
@@ -155,17 +168,15 @@
 				<div v-if="props.multiple" class="multiple">
 					<template v-if="Array.isArray(props.modelValue)">
 						<template
-							v-for="(svgCode, i) in (props.modelValue as string[] || [])"
+							v-for="(value, i) in (props.modelValue as string[] || [])"
 							:key="i">
 							<item-icon
 								v-if="i < props.selectedItemsToDisplay"
 								class="item"
-								:svg="svgCode"
+								:svg="getSvgCode(value)"
 								:height="20"
 								@click.stop="
-									onSelected(
-										filteredIcons?.find((icon) => icon.svgCode == svgCode)
-									)
+									onSelected(iconsList?.find((icon) => getValue(icon) == value))
 								" />
 						</template>
 						<div
@@ -181,11 +192,11 @@
 				</div>
 				<item-icon
 					v-else
-					:svg="(props.modelValue as string)"
+					:svg="getSvgCode(props.modelValue as string)"
 					:height="20"
 					@click.stop="
 						onSelected(
-							filteredIcons?.find((icon) => icon.svgCode == props.modelValue)
+							iconsList?.find((icon) => getValue(icon) == props.modelValue)
 						)
 					" />
 			</template>

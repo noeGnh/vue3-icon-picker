@@ -45,7 +45,7 @@ createApp(App).use(Vue3IconPicker).mount('#app')
 
 | Name                   | Type                                                                                    | Description                                                                              | Default   | Required |
 | ---------------------- | --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | --------- | -------- |
-| v-model                | string / string[]                                                                       | Selection                                                                                | null      | Yes      |
+| v-model                | string / string[]                                                                       | Selection, icon(s) SVG code(s) or name(s)                                                | null      | Yes      |
 | placeholder            | string                                                                                  | Input placeholder                                                                        | undefined | No       |
 | multiple               | boolean                                                                                 | Enable multiple selection when set to true                                               | false     | No       |
 | multipleLimit          | number                                                                                  | Maximum number of selections when multiple selection is enabled                          | Infinity  | No       |
@@ -57,6 +57,7 @@ createApp(App).use(Vue3IconPicker).mount('#app')
 | disabled               | boolean                                                                                 | Disable component                                                                        | false     | No       |
 | displaySearch          | boolean                                                                                 | Display search input                                                                     | true      | No       |
 | searchPlaceholder      | string                                                                                  | Search input placeholder                                                                 | 'Search'  | No       |
+| valueType              | 'svg' / 'name'                                                                          | Type of selection value, icon(s) SVG code(s) or name(s)                                  | 'svg'     | No       |
 
 ## Contributing
 

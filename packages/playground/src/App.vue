@@ -37,6 +37,7 @@
 <template>
 	<section class="container">
 		<h2>D E M O</h2>
+		<h4>Icon libraries</h4>
 		<div class="libraries">
 			<div
 				v-for="(lib, i) in iconLibraries"
@@ -57,6 +58,7 @@
 		</div>
 		<Vue3IconPicker
 			v-model="selection"
+			value-type="svg"
 			:icon-library="selectedLibraries"
 			:multiple="multipleSelection"
 			:clearable="!multipleSelection"
