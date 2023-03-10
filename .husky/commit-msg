@@ -4,3 +4,4 @@
 npx --no -- commitlint --config commitlint.config.cjs --edit 
 npx --no -- commitlint --config commitlint.config.cjs --edit 
 npx --no -- commitlint --config commitlint.config.cjs --edit 
+npx --no -- commitlint --config commitlint.config.cjs --edit 

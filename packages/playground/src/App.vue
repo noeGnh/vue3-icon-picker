@@ -37,7 +37,7 @@
 <template>
 	<section class="container">
 		<h2>D E M O</h2>
-		<h4>Icon libraries</h4>
+		<h4>Icon libraries to display</h4>
 		<div class="libraries">
 			<div
 				v-for="(lib, i) in iconLibraries"
