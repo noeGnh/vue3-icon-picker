@@ -423,6 +423,7 @@
 		background-color: #fff;
 		padding-bottom: 5px;
 		padding-top: 5px;
+		position: relative;
 		z-index: 1;
 	}
 
