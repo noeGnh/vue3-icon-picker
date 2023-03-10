@@ -5,13 +5,19 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.0.4](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.3...v0.0.4)
+## [v0.0.5](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.4...v0.0.5)
 
 ### Commits
 
+- chore: update package.json urls [`09ac0bb`](https://github.com/noeGnh/vue3-icon-picker/commit/09ac0bb09c18a891b9b34fa103b39c68d650de57)
+
+## [v0.0.4](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.3...v0.0.4) - 2023-03-10
+
+### Commits
+
+- chore: bump to v0.0.4 [`6490f9f`](https://github.com/noeGnh/vue3-icon-picker/commit/6490f9facb1ace4043e62571ea98935962409bc9)
 - docs: add new props, slots and events to readme.md [`1d930c6`](https://github.com/noeGnh/vue3-icon-picker/commit/1d930c6fbfc71671310d4f10df222663d998d320)
 - feat: add includes, excludes, include-search, exclude-search properties & empty [`e0e8e9e`](https://github.com/noeGnh/vue3-icon-picker/commit/e0e8e9ef2ec51074a819cf035b0dab1e4da22ce3)
-- feat: add value type, svg or name [`626e71e`](https://github.com/noeGnh/vue3-icon-picker/commit/626e71e07676cee9db580ff75298b55e8eff2be3)
 
 ## [v0.0.3](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.2...v0.0.3) - 2023-03-09
 

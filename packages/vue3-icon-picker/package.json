@@ -1,7 +1,7 @@
 {
 	"name": "vue3-icon-picker",
 	"description": "Vue 3 icon picker",
-	"version": "0.0.4",
+	"version": "0.0.5",
 	"private": false,
 	"author": "Noé Gnanih <noegnanih@gmail.com>",
 	"license": "MIT",
