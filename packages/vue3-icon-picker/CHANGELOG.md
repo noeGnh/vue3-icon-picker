@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.0.5](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.4...v0.0.5)
+## [v0.0.6](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.5...v0.0.6)
+
+### Commits
+
+- style: set empty container position to relative [`53caf26`](https://github.com/noeGnh/vue3-icon-picker/commit/53caf261f926cc379eb04851b2a7347fa5ca2266)
+
+## [v0.0.5](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.4...v0.0.5) - 2023-03-10
 
 ### Commits
 
