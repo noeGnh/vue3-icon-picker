@@ -23,6 +23,11 @@
 		selectedItemsToDisplay?: number
 		clearable?: boolean
 		valueType?: ValueType
+		includes?: string[]
+		excludes?: string[]
+		includeSearch?: string
+		excludeSearch?: string
+		emptyText?: string
 	}
 
 	const props = withDefaults(defineProps<Props>(), {
@@ -38,6 +43,11 @@
 		selectedItemsToDisplay: 9,
 		clearable: false,
 		valueType: 'svg',
+		includes: () => [],
+		excludes: () => [],
+		includeSearch: undefined,
+		excludeSearch: undefined,
+		emptyText: 'Nothing to show',
 	})
 
 	const emits = defineEmits(['change', 'update:modelValue'])
@@ -77,16 +87,45 @@
 	prepareData()
 
 	const filteredIcons = computed(() => {
-		return iconsList.value.filter(
-			(icon) =>
-				((typeof props.iconLibrary === 'string' &&
+		return iconsList.value.filter((icon) => {
+			const belongsToIconLibs =
+				(typeof props.iconLibrary === 'string' &&
 					icon.library == props.iconLibrary) ||
-					(Array.isArray(props.iconLibrary) &&
-						props.iconLibrary.includes(icon.library as IconLibrary)) ||
-					props.iconLibrary == 'all') &&
-				(!searchQuery.value ||
-					icon.name?.toLocaleLowerCase().includes(searchQuery.value))
-		)
+				(Array.isArray(props.iconLibrary) &&
+					props.iconLibrary.includes(icon.library as IconLibrary)) ||
+				props.iconLibrary == 'all'
+
+			const belongsToUserSearch =
+				!searchQuery.value ||
+				icon.name?.toLocaleLowerCase().includes(searchQuery.value)
+
+			const belongsToIncludes =
+				!props.includes ||
+				!props.includes.length ||
+				props.includes.includes(icon.name)
+
+			const belongsToIncludeSearch =
+				!props.includeSearch ||
+				icon.name?.toLocaleLowerCase().includes(props.includeSearch)
+
+			const doesNotBelongsToExcludes =
+				!props.excludes ||
+				!props.excludes.length ||
+				!props.excludes.includes(icon.name)
+
+			const doesNotBelongsToExcludeSearch =
+				!props.excludeSearch ||
+				!icon.name?.toLocaleLowerCase().includes(props.excludeSearch)
+
+			return (
+				belongsToIconLibs &&
+				belongsToUserSearch &&
+				belongsToIncludes &&
+				belongsToIncludeSearch &&
+				doesNotBelongsToExcludes &&
+				doesNotBelongsToExcludeSearch
+			)
+		})
 	})
 
 	const getValue = (icon: Icon) => {
@@ -152,6 +191,11 @@
 
 	const scroller = ref()
 	const { width } = useElementSize(scroller)
+
+	const slots = useSlots()
+	const hasSlot = (name: string) => {
+		return !!slots[name]
+	}
 </script>
 
 <template>
@@ -211,26 +255,34 @@
 						name="search"
 						:placeholder="props.searchPlaceholder" />
 				</div>
-				<RecycleScroller
-					ref="scroller"
-					class="v3ip__items"
-					:items="filteredIcons"
-					:item-size="40"
-					:grid-items="4"
-					:item-secondary-size="width / 4">
-					<template #default="{ item }">
-						<div
-							:class="{ active: isIconSelected(item) }"
-							@click="onSelected(item)">
-							<item-icon
-								:svg="item.svgCode"
-								:height="24"
-								:color="
-									isIconSelected(item) ? props.selectedIconColor : undefined
-								" />
-						</div>
-					</template>
-				</RecycleScroller>
+				<template v-if="filteredIcons && filteredIcons.length">
+					<RecycleScroller
+						ref="scroller"
+						class="v3ip__items"
+						:items="filteredIcons"
+						:item-size="40"
+						:grid-items="4"
+						:item-secondary-size="width / 4">
+						<template #default="{ item }">
+							<div
+								:class="{ active: isIconSelected(item) }"
+								@click="onSelected(item)">
+								<item-icon
+									:svg="item.svgCode"
+									:height="24"
+									:color="
+										isIconSelected(item) ? props.selectedIconColor : undefined
+									" />
+							</div>
+						</template>
+					</RecycleScroller>
+				</template>
+				<div v-else class="v3ip__empty">
+					<slot v-if="hasSlot('empty')" name="empty" />
+					<div v-else class="default-text">
+						<small>{{ props.emptyText }}</small>
+					</div>
+				</div>
 			</div>
 		</transition>
 	</div>
@@ -361,6 +413,21 @@
 	.v3ip__search input:focus-visible {
 		border: 1px solid #858585;
 		outline: 0;
+	}
+
+	.v3ip__empty {
+		border-radius: 0px 0px 6px 6px;
+		border-right: 1px solid #c2c2c2;
+		border-left: 1px solid #c2c2c2;
+		border-bottom: 1px solid #c2c2c2;
+		background-color: #fff;
+		padding-bottom: 5px;
+		padding-top: 5px;
+		z-index: 1;
+	}
+
+	.v3ip__empty > .default-text {
+		text-align: center;
 	}
 </style>
 
