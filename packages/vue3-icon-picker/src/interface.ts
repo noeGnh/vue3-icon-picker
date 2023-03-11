@@ -16,3 +16,7 @@ export interface Icon {
 	svgCode: string
 	library: string
 }
+
+export interface Options {
+	name: string
+}

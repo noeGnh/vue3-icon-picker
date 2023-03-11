@@ -45,6 +45,7 @@
 	},
 	"dependencies": {
 		"@vueuse/core": "^9.13.0",
+		"is-svg": "^5.0.0",
 		"vue-virtual-scroller": "2.0.0-beta.8"
 	},
 	"repository": {

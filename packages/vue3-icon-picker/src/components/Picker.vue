@@ -1,10 +1,11 @@
 <script setup lang="ts">
-	import iconsRawList from '../assets/icons.json'
 	import type { IconLibrary, ValueType, Icon } from '../interface'
 
 	import { useElementSize, onClickOutside } from '@vueuse/core'
 
-	import ItemIcon from './ItemIcon.vue'
+	import { useIconsLoader } from '../utils'
+
+	import ItemIcon from './Icon.vue'
 
 	import { RecycleScroller } from 'vue-virtual-scroller'
 	import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
@@ -54,37 +55,9 @@
 
 	const selectedIconBgColor = ref(props.selectedIconBgColor)
 	const searchQuery = ref<string>('')
-	const iconsList = ref<Icon[]>([])
 	const open = ref<boolean>(false)
 
-	const extractIconData = (key: string) => {
-		const parts = key.split('__')
-
-		return [parts[0], parts.length > 1 ? parts[1] : '']
-	}
-
-	const oneMoment = () => {
-		return new Promise((resolve) => setTimeout(resolve))
-	}
-
-	const prepareData = async () => {
-		let i = 1
-		for (const [key, value] of Object.entries(iconsRawList)) {
-			if (i && i % 5000 === 0) {
-				await oneMoment()
-			}
-			const [name, library] = extractIconData(key)
-			iconsList.value.push({
-				id: i,
-				name: name,
-				svgCode: value,
-				library: library,
-			})
-			i += 1
-		}
-	}
-
-	prepareData()
+	const { iconsList } = useIconsLoader()
 
 	const filteredIcons = computed(() => {
 		return iconsList.value.filter((icon) => {
@@ -217,8 +190,8 @@
 							<item-icon
 								v-if="i < props.selectedItemsToDisplay"
 								class="item"
-								:svg="getSvgCode(value)"
-								:height="20"
+								:data="getSvgCode(value)"
+								:size="20"
 								@click.stop="
 									onSelected(iconsList?.find((icon) => getValue(icon) == value))
 								" />
@@ -236,8 +209,8 @@
 				</div>
 				<item-icon
 					v-else
-					:svg="getSvgCode(props.modelValue as string)"
-					:height="20"
+					:data="getSvgCode(props.modelValue as string)"
+					:size="20"
 					@click.stop="
 						onSelected(
 							iconsList?.find((icon) => getValue(icon) == props.modelValue)
@@ -268,8 +241,8 @@
 								:class="{ active: isIconSelected(item) }"
 								@click="onSelected(item)">
 								<item-icon
-									:svg="item.svgCode"
-									:height="24"
+									:data="item.svgCode"
+									:size="24"
 									:color="
 										isIconSelected(item) ? props.selectedIconColor : undefined
 									" />

@@ -1,6 +1,6 @@
 # Vue 3 Icon Picker ![npm (scoped)](https://img.shields.io/npm/v/vue3-icon-picker)
 
-Icon picker input component
+Icon picker component
 
 <p align="center">
 <img width="600" alt="Demo GIF" src="https://github.com/noeGnh/vue3-icon-picker/blob/master/demo.gif"/>
@@ -8,8 +8,16 @@ Icon picker input component
 
 ## Installation
 
+If you are using npm:
+
 ```sh
 npm i vue3-icon-picker
+```
+
+If you are using yarn:
+
+```sh
+yarn add vue3-icon-picker
 ```
 
 ## About
@@ -22,9 +30,10 @@ View the live demo [`here`](https://noegnh.github.io/vue3-icon-picker/)
 
 ## Usage
 
-Add this package to your project main.js:
+You can add this package globally to your project:
 
 ```js
+// main.js
 import { createApp } from 'vue'
 
 import App from './App.vue'
@@ -35,10 +44,27 @@ import 'vue3-icon-picker/dist/style.css'
 createApp(App).use(Vue3IconPicker).mount('#app')
 ```
 
-### In components
+If needed rename component to use:
+
+```js
+createApp(App).use(Vue3IconPicker, { name: 'IconPicker' }).mount('#app') // use in template <IconPicker />
+```
+
+Alternatively you can also import the component locally:
+
+```js
+<script setup>
+	import {Vue3IconPicker} from 'vue3-icon-picker' import
+	'vue3-icon-picker/dist/style.css'
+</script>
+```
+
+You can then use the component in your template
 
 ```html
-<Vue3IconPicker v-model="icon" placeholder="Select icon" />
+<template>
+	<Vue3IconPicker v-model="icon" placeholder="Select icon" />
+</template>
 ```
 
 ## Props
@@ -74,6 +100,43 @@ createApp(App).use(Vue3IconPicker).mount('#app')
 
 - change
   - This event is fired when selection change.
+
+## Display icons
+
+You can simply display icons like that if your value type is svg:
+
+```html
+<script setup>
+	const icon = ref(null)
+</script>
+
+<template>
+	<Vue3IconPicker v-model="icon" placeholder="Select icon" />
+	<i v-html="icon"></i>
+</template>
+```
+
+Or use custom icon component provided by this package:
+
+```html
+<script setup>
+	import { Icon } from 'vue3-icon-picker'
+	const icon = ref(null)
+</script>
+
+<template>
+	<Vue3IconPicker v-model="icon" placeholder="Select icon" />
+	<Icon :data="icon" :size="24" color="#124ebb"></Icon>
+</template>
+```
+
+### Icon Props
+
+| Name  | Type            | Description           | Default   | Required |
+| ----- | --------------- | --------------------- | --------- | -------- |
+| data  | string          | Icon svg code or name | undefined | Yes      |
+| size  | number / string | Icon size             | 24        | No       |
+| color | string          | Icon color            | undefined | No       |
 
 ## Contributing
 
