@@ -24,8 +24,8 @@
 		selectedItemsToDisplay?: number
 		clearable?: boolean
 		valueType?: ValueType
-		includes?: string[]
-		excludes?: string[]
+		includeIcons?: string[]
+		excludeIcons?: string[]
 		includeSearch?: string
 		excludeSearch?: string
 		emptyText?: string
@@ -44,8 +44,8 @@
 		selectedItemsToDisplay: 9,
 		clearable: false,
 		valueType: 'svg',
-		includes: () => [],
-		excludes: () => [],
+		includeIcons: () => [],
+		excludeIcons: () => [],
 		includeSearch: undefined,
 		excludeSearch: undefined,
 		emptyText: 'Nothing to show',
@@ -73,18 +73,18 @@
 				icon.name?.toLocaleLowerCase().includes(searchQuery.value)
 
 			const belongsToIncludes =
-				!props.includes ||
-				!props.includes.length ||
-				props.includes.includes(icon.name)
+				!props.includeIcons ||
+				!props.includeIcons.length ||
+				props.includeIcons.includes(icon.name)
 
 			const belongsToIncludeSearch =
 				!props.includeSearch ||
 				icon.name?.toLocaleLowerCase().includes(props.includeSearch)
 
 			const doesNotBelongsToExcludes =
-				!props.excludes ||
-				!props.excludes.length ||
-				!props.excludes.includes(icon.name)
+				!props.excludeIcons ||
+				!props.excludeIcons.length ||
+				!props.excludeIcons.includes(icon.name)
 
 			const doesNotBelongsToExcludeSearch =
 				!props.excludeSearch ||

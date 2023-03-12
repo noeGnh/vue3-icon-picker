@@ -54,8 +54,8 @@ Alternatively you can also import the component locally:
 
 ```js
 <script setup>
- import { Vue3IconPicker } from 'vue3-icon-picker'
- import 'vue3-icon-picker/dist/style.css'
+	import {Vue3IconPicker} from 'vue3-icon-picker' import
+	'vue3-icon-picker/dist/style.css'
 </script>
 ```
 
@@ -63,7 +63,7 @@ You can then use the component in your template
 
 ```html
 <template>
- <Vue3IconPicker v-model="icon" placeholder="Select icon" />
+	<Vue3IconPicker v-model="icon" placeholder="Select icon" />
 </template>
 ```
 
@@ -84,8 +84,8 @@ You can then use the component in your template
 | displaySearch          | boolean                                                                                         | Display search input                                                                     | true              | No       |
 | searchPlaceholder      | string                                                                                          | Search input placeholder                                                                 | 'Search'          | No       |
 | valueType              | 'svg' / 'name'                                                                                  | Type of selection value, icon(s) SVG code(s) or name(s)                                  | 'svg'             | No       |
-| includes               | string[]                                                                                        | Array of icon names to be included                                                       | []                | No       |
-| excludes               | string[]                                                                                        | Array of icon names to be excluded                                                       | []                | No       |
+| includeIcons           | string[]                                                                                        | Array of icon names to be included                                                       | []                | No       |
+| excludeIcons           | string[]                                                                                        | Array of icon names to be excluded                                                       | []                | No       |
 | includeSearch          | string                                                                                          | The search query whose results must be included                                          | undefined         | No       |
 | excludeSearch          | string                                                                                          | The search query whose results must be excluded                                          | undefined         | No       |
 | emptyText              | string                                                                                          | Empty text                                                                               | 'Nothing to show' | No       |
@@ -107,12 +107,12 @@ You can simply display icons like that if your value type is svg:
 
 ```html
 <script setup>
- const icon = ref(null)
+	const icon = ref(null)
 </script>
 
 <template>
- <Vue3IconPicker v-model="icon" placeholder="Select icon" />
- <i v-html="icon"></i>
+	<Vue3IconPicker v-model="icon" placeholder="Select icon" />
+	<i v-html="icon"></i>
 </template>
 ```
 
@@ -120,13 +120,13 @@ Or use custom icon component provided by this package:
 
 ```html
 <script setup>
- import { Icon } from 'vue3-icon-picker'
- const icon = ref(null)
+	import { Icon } from 'vue3-icon-picker'
+	const icon = ref(null)
 </script>
 
 <template>
- <Vue3IconPicker v-model="icon" placeholder="Select icon" />
- <Icon :data="icon" :size="24" color="#124ebb"></Icon>
+	<Vue3IconPicker v-model="icon" placeholder="Select icon" />
+	<Icon :data="icon" :size="24" color="#124ebb"></Icon>
 </template>
 ```
 
