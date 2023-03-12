@@ -5,10 +5,17 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.0.7](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.6...v0.0.7)
+## [v0.0.8](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.7...v0.0.8)
 
 ### Commits
 
+- feat: change includes to includeIcons and excludes to excludeIcons [`fa75803`](https://github.com/noeGnh/vue3-icon-picker/commit/fa75803bbedef8bb3868d555c261367e003b369e)
+
+## [v0.0.7](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.6...v0.0.7) - 2023-03-11
+
+### Commits
+
+- chore: bump to v0.0.7 [`dbc882d`](https://github.com/noeGnh/vue3-icon-picker/commit/dbc882dca29d25a3ae317631119343b2a4bf301e)
 - feat: improve and export icon component [`eabffbd`](https://github.com/noeGnh/vue3-icon-picker/commit/eabffbd44ad637cbdf82b65a8a74ee810642c2df)
 
 ## [v0.0.6](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.5...v0.0.6) - 2023-03-10
