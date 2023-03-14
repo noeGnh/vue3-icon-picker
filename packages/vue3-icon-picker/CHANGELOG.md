@@ -5,11 +5,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.0.9](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.8...v0.0.9)
+## [v0.1.0](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.9...v0.1.0)
+
+### Commits
+
+- fix: remove duplicate icons [`2da4134`](https://github.com/noeGnh/vue3-icon-picker/commit/2da413402cf0f54f63d5c4d4120f9a688b825ab5)
+
+## [v0.0.9](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.8...v0.0.9) - 2023-03-12
 
 ### Commits
 
 - docs: format doc [`d1acd0e`](https://github.com/noeGnh/vue3-icon-picker/commit/d1acd0e69dcfdd675e885319efaef3eaad6e09c2)
+- chore: bump to v0.0.9 [`0b94a24`](https://github.com/noeGnh/vue3-icon-picker/commit/0b94a24414fb7a942b383786cad9346f8efecd1b)
 
 ## [v0.0.8](https://github.com/noeGnh/vue3-icon-picker/compare/v0.0.7...v0.0.8) - 2023-03-12
 
