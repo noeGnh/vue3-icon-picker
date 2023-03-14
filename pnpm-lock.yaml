@@ -113,10 +113,12 @@ importers:
 
   packages/vue3-icon-picker:
     specifiers:
+      '@types/lodash.uniqby': ^4.7.7
       '@vueuse/core': ^9.13.0
       auto-changelog: ^2.4.0
       icon-file-loader: workspace:*
       is-svg: ^5.0.0
+      lodash.uniqby: ^4.7.0
       vite: ^4.1.0
       vitest: ^0.28.3
       vue: ^3.2.45
@@ -124,9 +126,11 @@ importers:
     dependencies:
       '@vueuse/core': 9.13.0_vue@3.2.47
       is-svg: 5.0.0
+      lodash.uniqby: 4.7.0
       vue: 3.2.47
       vue-virtual-scroller: 2.0.0-beta.8_vue@3.2.47
     devDependencies:
+      '@types/lodash.uniqby': 4.7.7
       auto-changelog: 2.4.0
       icon-file-loader: link:../icon-file-loader
       vite: 4.1.1
@@ -1726,6 +1730,22 @@ packages:
     resolution:
       {
         integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==,
+      }
+    dev: true
+
+  /@types/lodash.uniqby/4.7.7:
+    resolution:
+      {
+        integrity: sha512-sv2g6vkCIvEUsK5/Vq17haoZaisfj2EWW8mP7QWlnKi6dByoNmeuHDDXHR7sabuDqwO4gvU7ModIL22MmnOocg==,
+      }
+    dependencies:
+      '@types/lodash': 4.14.191
+    dev: true
+
+  /@types/lodash/4.14.191:
+    resolution:
+      {
+        integrity: sha512-BdZ5BCCvho3EIXw6wUCXHe7rS53AIDPLE+JzwgT+OsJk53oBfbSmZZ7CX4VaRoN78N+TJpFi9QPlfIVNmJYWxQ==,
       }
     dev: true
 
@@ -5624,6 +5644,13 @@ packages:
         integrity: sha512-xfBaXQd9ryd9dlSDvnvI0lvxfLJlYAZzXomUYzLKtUeOQvOP5piqAWuGtrhWeqaXK9hhoM/iyJc5AV+XfsX3HQ==,
       }
     dev: true
+
+  /lodash.uniqby/4.7.0:
+    resolution:
+      {
+        integrity: sha512-e/zcLx6CSbmaEgFHCA7BnoQKyCtKMxnuWrJygbwPs/AIn+IMKl66L8/s+wBUn5LRw2pZx3bUHibiV1b6aTWIww==,
+      }
+    dev: false
 
   /lodash.upperfirst/4.3.1:
     resolution:

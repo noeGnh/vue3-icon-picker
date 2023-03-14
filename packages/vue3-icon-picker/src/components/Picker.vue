@@ -7,6 +7,8 @@
 
 	import ItemIcon from './Icon.vue'
 
+	import uniqBy from 'lodash.uniqby'
+
 	import { RecycleScroller } from 'vue-virtual-scroller'
 	import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
@@ -60,45 +62,51 @@
 	const { iconsList } = useIconsLoader()
 
 	const filteredIcons = computed(() => {
-		return iconsList.value.filter((icon) => {
-			const belongsToIconLibs =
-				(typeof props.iconLibrary === 'string' &&
-					icon.library == props.iconLibrary) ||
-				(Array.isArray(props.iconLibrary) &&
-					props.iconLibrary.includes(icon.library as IconLibrary)) ||
-				props.iconLibrary == 'all'
+		return uniqBy(
+			uniqBy(
+				iconsList.value.filter((icon) => {
+					const belongsToIconLibs =
+						(typeof props.iconLibrary === 'string' &&
+							icon.library == props.iconLibrary) ||
+						(Array.isArray(props.iconLibrary) &&
+							props.iconLibrary.includes(icon.library as IconLibrary)) ||
+						props.iconLibrary == 'all'
 
-			const belongsToUserSearch =
-				!searchQuery.value ||
-				icon.name?.toLocaleLowerCase().includes(searchQuery.value)
+					const belongsToUserSearch =
+						!searchQuery.value ||
+						icon.name?.toLocaleLowerCase().includes(searchQuery.value)
 
-			const belongsToIncludes =
-				!props.includeIcons ||
-				!props.includeIcons.length ||
-				props.includeIcons.includes(icon.name)
+					const belongsToIncludes =
+						!props.includeIcons ||
+						!props.includeIcons.length ||
+						props.includeIcons.includes(icon.name)
 
-			const belongsToIncludeSearch =
-				!props.includeSearch ||
-				icon.name?.toLocaleLowerCase().includes(props.includeSearch)
+					const belongsToIncludeSearch =
+						!props.includeSearch ||
+						icon.name?.toLocaleLowerCase().includes(props.includeSearch)
 
-			const doesNotBelongsToExcludes =
-				!props.excludeIcons ||
-				!props.excludeIcons.length ||
-				!props.excludeIcons.includes(icon.name)
+					const doesNotBelongsToExcludes =
+						!props.excludeIcons ||
+						!props.excludeIcons.length ||
+						!props.excludeIcons.includes(icon.name)
 
-			const doesNotBelongsToExcludeSearch =
-				!props.excludeSearch ||
-				!icon.name?.toLocaleLowerCase().includes(props.excludeSearch)
+					const doesNotBelongsToExcludeSearch =
+						!props.excludeSearch ||
+						!icon.name?.toLocaleLowerCase().includes(props.excludeSearch)
 
-			return (
-				belongsToIconLibs &&
-				belongsToUserSearch &&
-				belongsToIncludes &&
-				belongsToIncludeSearch &&
-				doesNotBelongsToExcludes &&
-				doesNotBelongsToExcludeSearch
-			)
-		})
+					return (
+						belongsToIconLibs &&
+						belongsToUserSearch &&
+						belongsToIncludes &&
+						belongsToIncludeSearch &&
+						doesNotBelongsToExcludes &&
+						doesNotBelongsToExcludeSearch
+					)
+				}),
+				'svgCode'
+			),
+			'name'
+		)
 	})
 
 	const getValue = (icon: Icon) => {

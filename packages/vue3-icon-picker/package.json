@@ -38,6 +38,7 @@
 		"vue": "^3.2.45"
 	},
 	"devDependencies": {
+		"@types/lodash.uniqby": "^4.7.7",
 		"auto-changelog": "^2.4.0",
 		"icon-file-loader": "workspace:*",
 		"vite": "^4.1.0",
@@ -46,6 +47,7 @@
 	"dependencies": {
 		"@vueuse/core": "^9.13.0",
 		"is-svg": "^5.0.0",
+		"lodash.uniqby": "^4.7.0",
 		"vue-virtual-scroller": "2.0.0-beta.8"
 	},
 	"repository": {

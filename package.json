@@ -18,7 +18,7 @@
 		"build-docs": "pnpm -F docs run build",
 		"lint": "eslint --ext .js,.ts,.vue .",
 		"lint:fix": "eslint --ext .js,.ts,.vue . --fix",
-		"format": "prettier . --write",
+		"format": "prettier **/*.{js,ts,vue} . --write",
 		"commit": "git add --all && commit",
 		"commit-push": "git add --all && commit && git push origin --all",
 		"execute-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\" && npx husky add .husky/commit-msg \"npx --no -- commitlint --config commitlint.config.cjs --edit $1\""
