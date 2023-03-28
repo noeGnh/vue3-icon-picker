@@ -4,7 +4,7 @@ declare module 'vue-virtual-scroller' {
 	type Plugin_2<Option = any> =
 		| (PluginInstallFunction<Option> & {
 				install?: PluginInstallFunction<Option>
-		  })
+			})
 		| {
 				install: PluginInstallFunction<Option>
 		  }

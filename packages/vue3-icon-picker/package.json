@@ -1,70 +1,70 @@
 {
-	"name": "vue3-icon-picker",
-	"description": "Vue 3 icon picker",
-	"version": "0.1.0",
-	"private": false,
-	"author": "Noé Gnanih <noegnanih@gmail.com>",
-	"license": "MIT",
-	"type": "module",
-	"main": "dist/index.cjs",
-	"module": "dist/index.mjs",
-	"exports": {
-		".": {
-			"types": "./types/index.d.ts",
-			"import": "./dist/index.mjs",
-			"require": "./dist/index.cjs"
-		},
-		"./*": "./*"
-	},
-	"typings": "types/index.d.ts",
-	"files": [
-		"dist",
-		"types",
-		"README.md"
-	],
-	"scripts": {
-		"dev-server": "pnpm --parallel vite",
-		"dev-types": "vue-tsc  --noEmit -p tsconfig.app.json --watch",
-		"build": "yarn build-lib && yarn build-types",
-		"build-lib": "yarn load-icons && vite build",
-		"build-types": "vue-tsc --emitDeclarationOnly --declaration -p tsconfig.app.json",
-		"lint": "eslint 'src/**/*.{ts,vue}'",
-		"test": "vitest",
-		"test-ci": "vitest --run",
-		"version": "auto-changelog --template keepachangelog --hide-credit -p && git add CHANGELOG.md",
-		"load-icons": "loader load-icon-file"
-	},
-	"peerDependencies": {
-		"vue": "^3.2.45"
-	},
-	"devDependencies": {
-		"@types/lodash.uniqby": "^4.7.7",
-		"auto-changelog": "^2.4.0",
-		"icon-file-loader": "workspace:*",
-		"vite": "^4.1.0",
-		"vitest": "^0.28.3"
-	},
-	"dependencies": {
-		"@vueuse/core": "^9.13.0",
-		"is-svg": "^5.0.0",
-		"lodash.uniqby": "^4.7.0",
-		"vue-virtual-scroller": "2.0.0-beta.8"
-	},
-	"repository": {
-		"type": "git",
-		"url": "https://github.com/noeGnh/vue3-icon-picker"
-	},
-	"keywords": [
-		"vue",
-		"vue3",
-		"icon",
-		"picker"
-	],
-	"bugs": {
-		"url": "https://github.com/noeGnh/vue3-icon-picker/issues"
-	},
-	"homepage": "https://github.com/noeGnh/vue3-icon-picker#readme",
-	"publishConfig": {
-		"access": "public"
-	}
+  "name": "vue3-icon-picker",
+  "description": "Vue 3 icon picker",
+  "version": "0.1.0",
+  "private": false,
+  "author": "Noé Gnanih <noegnanih@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./*": "./*"
+  },
+  "typings": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types",
+    "README.md"
+  ],
+  "scripts": {
+    "dev-server": "pnpm --parallel vite",
+    "dev-types": "vue-tsc  --noEmit -p tsconfig.app.json --watch",
+    "build": "yarn build-lib && yarn build-types",
+    "build-lib": "yarn load-icons && vite build",
+    "build-types": "vue-tsc --emitDeclarationOnly --declaration -p tsconfig.app.json",
+    "lint": "eslint 'src/**/*.{ts,vue}'",
+    "test": "vitest",
+    "test-ci": "vitest --run",
+    "version": "auto-changelog --template keepachangelog --hide-credit -p && git add CHANGELOG.md",
+    "load-icons": "loader load-icon-file"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.45"
+  },
+  "devDependencies": {
+    "@types/lodash.uniqby": "^4.7.7",
+    "auto-changelog": "^2.4.0",
+    "icon-file-loader": "workspace:*",
+    "vite": "^4.1.0",
+    "vitest": "^0.28.3"
+  },
+  "dependencies": {
+    "@vueuse/core": "^9.13.0",
+    "is-svg": "^5.0.0",
+    "lodash.uniqby": "^4.7.0",
+    "vue-virtual-scroller": "2.0.0-beta.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/noeGnh/vue3-icon-picker"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "icon",
+    "picker"
+  ],
+  "bugs": {
+    "url": "https://github.com/noeGnh/vue3-icon-picker/issues"
+  },
+  "homepage": "https://github.com/noeGnh/vue3-icon-picker#readme",
+  "publishConfig": {
+    "access": "public"
+  }
 }

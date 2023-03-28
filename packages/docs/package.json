@@ -1,28 +1,28 @@
 {
-	"name": "docs",
-	"version": "0.0.0",
-	"private": true,
-	"description": "Plugin docs",
-	"author": "Noé Gnanih <noegnanih@gmail.com>",
-	"homepage": "",
-	"license": "MIT",
-	"main": "index.ts",
-	"directories": {
-		"plugin": "vue3-icon-picker",
-		"test": "__tests__"
-	},
-	"files": [
-		"vue3-icon-picker"
-	],
-	"scripts": {
-		"dev": "vitepress dev .",
-		"build": "vitepress build .",
-		"lint": "eslint '.vitepress/**/*.{ts,vue}'"
-	},
-	"dependencies": {
-		"vue3-icon-picker": "workspace:*"
-	},
-	"devDependencies": {
-		"vitepress": "^1.0.0-alpha.46"
-	}
+  "name": "docs",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Plugin docs",
+  "author": "Noé Gnanih <noegnanih@gmail.com>",
+  "homepage": "",
+  "license": "MIT",
+  "main": "index.ts",
+  "directories": {
+    "plugin": "vue3-icon-picker",
+    "test": "__tests__"
+  },
+  "files": [
+    "vue3-icon-picker"
+  ],
+  "scripts": {
+    "dev": "vitepress dev .",
+    "build": "vitepress build .",
+    "lint": "eslint '.vitepress/**/*.{ts,vue}'"
+  },
+  "dependencies": {
+    "vue3-icon-picker": "workspace:*"
+  },
+  "devDependencies": {
+    "vitepress": "^1.0.0-alpha.46"
+  }
 }

@@ -27,24 +27,24 @@ footer?
 */
 
 module.exports = {
-	extends: ['@commitlint/config-conventional'],
-	rules: {
-		'type-enum': [
-			2,
-			'always',
-			[
-				'build',
-				'chore',
-				'feat',
-				'fix',
-				'docs',
-				'refactor',
-				'perf',
-				'style',
-				'test',
-				'ci',
-				'revert',
-			],
-		],
-	},
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [
+      2,
+      'always',
+      [
+        'build',
+        'chore',
+        'feat',
+        'fix',
+        'docs',
+        'refactor',
+        'perf',
+        'style',
+        'test',
+        'ci',
+        'revert',
+      ],
+    ],
+  },
 }

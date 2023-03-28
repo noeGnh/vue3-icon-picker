@@ -1,24 +1,24 @@
 {
-	"name": "icon-file-loader",
-	"version": "1.0.0",
-	"main": "index.js",
-	"author": "arkane",
-	"license": "MIT",
-	"bin": {
-		"loader": "index.js"
-	},
-	"devDependencies": {
-		"chalk": "^4.1.2",
-		"commander": "^9.2.0",
-		"glob": "^9.2.1",
-		"ora": "^5.4.1",
-		"@sicons/antd": "^0.12.0",
-		"@sicons/carbon": "^0.12.0",
-		"@sicons/fa": "^0.12.0",
-		"@sicons/fluent": "^0.12.0",
-		"@sicons/ionicons4": "^0.12.0",
-		"@sicons/ionicons5": "^0.12.0",
-		"@sicons/material": "^0.12.0",
-		"@sicons/tabler": "^0.12.0"
-	}
+  "name": "icon-file-loader",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "arkane",
+  "license": "MIT",
+  "bin": {
+    "loader": "index.js"
+  },
+  "devDependencies": {
+    "chalk": "^4.1.2",
+    "commander": "^9.2.0",
+    "glob": "^9.2.1",
+    "ora": "^5.4.1",
+    "@sicons/antd": "^0.12.0",
+    "@sicons/carbon": "^0.12.0",
+    "@sicons/fa": "^0.12.0",
+    "@sicons/fluent": "^0.12.0",
+    "@sicons/ionicons4": "^0.12.0",
+    "@sicons/ionicons5": "^0.12.0",
+    "@sicons/material": "^0.12.0",
+    "@sicons/tabler": "^0.12.0"
+  }
 }
