@@ -1,6 +1,6 @@
 {
   "name": "vue3-icon-picker-monorepo-template",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A monorepo template for developing Vue libraries",
   "author": "Noé Gnanih <noegnanih@gmail.com>",
   "license": "MIT",
