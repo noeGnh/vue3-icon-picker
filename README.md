@@ -144,7 +144,7 @@ Pull requests are welcome. For major changes, please open an issue first to disc
 
 ## Changelog
 
-Detailed changes for each release are documented in the [release notes](https://github.com/noeGnh/vue3-icon-picker/releases).
+Detailed changes for each release are documented in the [release notes](https://github.com/noeGnh/vue3-icon-picker/packages/vue3-icon-picker/CHANGELOG.md).
 
 ## License
 
