@@ -5,9 +5,38 @@ export function useIconsLoader() {
   const iconsList = ref<Icon[]>([])
 
   const extractIconData = (key: string) => {
-    const parts = key.split('__')
+    const parts = key.split('_')
 
-    return [parts[0], parts.length > 1 ? parts[1] : '']
+    const realLibNames: { [key: string]: string } = {
+      a: 'antd',
+      b: 'carbon',
+      fa: 'fa',
+      f: 'fluent',
+      i4: 'ionicons4',
+      i5: 'ionicons5',
+      m: 'material',
+      t: 'tabler',
+    }
+
+    const realIconFormats: { [key: string]: string } = {
+      F: 'Filled',
+      O: 'Outlined',
+      R: 'Round',
+      S: 'Sharp',
+      T: 'Twotone',
+      E: 'Regular',
+    }
+
+    const restoreIconFormat = (filename: string) => {
+      return filename.replace(/([A-Z])(?=\.\w+$)/, (match, shortFormat) => {
+        return realIconFormats[shortFormat] || shortFormat
+      })
+    }
+
+    return [
+      restoreIconFormat(parts[0]),
+      parts.length > 1 ? realLibNames[parts[1]] : '',
+    ]
   }
 
   const oneMoment = () => {

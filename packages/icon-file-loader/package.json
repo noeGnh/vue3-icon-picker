@@ -8,10 +8,6 @@
     "loader": "index.js"
   },
   "devDependencies": {
-    "chalk": "^4.1.2",
-    "commander": "^9.2.0",
-    "glob": "^9.2.1",
-    "ora": "^5.4.1",
     "@sicons/antd": "^0.12.0",
     "@sicons/carbon": "^0.12.0",
     "@sicons/fa": "^0.12.0",
@@ -19,6 +15,11 @@
     "@sicons/ionicons4": "^0.12.0",
     "@sicons/ionicons5": "^0.12.0",
     "@sicons/material": "^0.12.0",
-    "@sicons/tabler": "^0.12.0"
+    "@sicons/tabler": "^0.12.0",
+    "chalk": "^4.1.2",
+    "commander": "^9.2.0",
+    "glob": "^9.2.1",
+    "ora": "^5.4.1",
+    "svgo": "^3.3.2"
   }
 }

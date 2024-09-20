@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const { program } = require('commander')
+const { optimize } = require('svgo')
 const { glob } = require('glob')
 const path = require('path')
 const ora = require('ora')
@@ -27,9 +28,44 @@ program
     if (files && files.length) {
       const jsonData = {}
 
+      const shorterLibNames = {
+        antd: 'a',
+        carbon: 'b',
+        fa: 'fa',
+        fluent: 'f',
+        ionicons4: 'i4',
+        ionicons5: 'i5',
+        material: 'm',
+        tabler: 't',
+      }
+
+      const shorterIconFormats = {
+        Filled: 'F',
+        Outlined: 'O',
+        Round: 'R',
+        Sharp: 'S',
+        Twotone: 'T',
+        Regular: 'E',
+      }
+
+      const shortIconFormat = (filename) => {
+        for (const [longFormat, shortFormat] of Object.entries(
+          shorterIconFormats
+        )) {
+          if (filename.includes(longFormat)) {
+            filename = filename.replace(longFormat, shortFormat)
+          }
+        }
+        return filename
+      }
+
       files.reverse().forEach((file) => {
         const data = fs.readFileSync(file).toString()
-        jsonData[extractFileName(file) + '__' + extractFolderName(file)] = data
+        jsonData[
+          shortIconFormat(extractFileName(file)) +
+            '_' +
+            shorterLibNames[extractFolderName(file)]
+        ] = optimize(data, { multipass: true }).data
       })
 
       const p = path.join(
@@ -37,7 +73,7 @@ program
         '../vue3-icon-picker/src/assets/icons.json'
       )
 
-      fs.writeFileSync(p, JSON.stringify(jsonData, undefined, 2))
+      fs.writeFileSync(p, JSON.stringify(jsonData))
 
       spinner.succeed('Success ! File loaded at : ' + p)
     } else spinner.fail('No data found !')
