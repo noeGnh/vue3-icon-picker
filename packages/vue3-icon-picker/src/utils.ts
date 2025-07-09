@@ -1,5 +1,5 @@
-import iconsRawList from './assets/icons.json'
-import type { Icon } from './interface'
+import iconsRawList from './icons'
+import type { Icon } from './types'
 
 export function useIconsLoader() {
   const iconsList = ref<Icon[]>([])
@@ -21,6 +21,7 @@ export function useIconsLoader() {
     const realIconFormats: { [key: string]: string } = {
       F: 'Filled',
       O: 'Outlined',
+      O2: 'Outline',
       R: 'Round',
       S: 'Sharp',
       T: 'Twotone',
@@ -45,15 +46,15 @@ export function useIconsLoader() {
 
   const prepareData = async () => {
     let i = 1
-    for (const [key, value] of Object.entries(iconsRawList)) {
+    for (const value in iconsRawList) {
       if (i && i % 5000 === 0) {
         await oneMoment()
       }
-      const [name, library] = extractIconData(key)
+      const [name, library] = extractIconData(value)
       iconsList.value.push({
         id: i,
         name: name,
-        svgCode: value,
+        svgCodeUrl: `https://raw.githubusercontent.com/noeGnh/vue3-icon-picker/master/packages/vue3-icon-picker/src/assets/sicons/${library}/${name}.svg`,
         library: library,
       })
       i += 1

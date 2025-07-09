@@ -30,7 +30,7 @@
         const iconsList = await prepareData()
 
         svgCode.value =
-          iconsList?.find((icon) => icon.name == val)?.svgCode || ''
+          iconsList?.find((icon) => icon.name == val)?.svgCodeUrl || ''
       }
     },
     {

@@ -2,7 +2,7 @@ import type { App } from 'vue'
 
 import Icon from './components/Icon.vue'
 import Vue3IconPicker from './components/Picker.vue'
-import type { Options } from './interface'
+import type { Options } from './types'
 
 export { Vue3IconPicker, Icon }
 

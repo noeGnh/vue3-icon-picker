@@ -25,22 +25,33 @@
   "scripts": {
     "dev-server": "pnpm --parallel vite",
     "dev-types": "vue-tsc  --noEmit -p tsconfig.app.json --watch",
-    "build": "yarn build-lib && yarn build-types",
-    "build-lib": "yarn load-icons && vite build",
-    "build-types": "vue-tsc --emitDeclarationOnly --declaration -p tsconfig.app.json",
+    "build": "pnpm build-lib && pnpm build-types",
+    "build-lib": "vite build",
+    "build-types": "rm -f *.tsbuildinfo && vue-tsc --emitDeclarationOnly --declaration -p tsconfig.app.json",
     "lint": "eslint 'src/**/*.{ts,vue}'",
     "test": "vitest",
     "test-ci": "vitest --run",
     "version": "auto-changelog --template keepachangelog --hide-credit -p && git add CHANGELOG.md",
-    "load-icons": "loader load-icon-file"
+    "load-icon-assets": "tsx scripts/load-icon-assets.ts"
   },
   "peerDependencies": {
-    "vue": "^3.2.45"
+    "vue": "^3.4.0"
   },
   "devDependencies": {
+    "@sicons/antd": "^0.13.0",
+    "@sicons/carbon": "^0.13.0",
+    "@sicons/fa": "^0.13.0",
+    "@sicons/fluent": "^0.13.0",
+    "@sicons/ionicons4": "^0.13.0",
+    "@sicons/ionicons5": "^0.13.0",
+    "@sicons/material": "^0.13.0",
+    "@sicons/tabler": "^0.13.0",
     "@types/lodash.uniqby": "^4.7.7",
     "auto-changelog": "^2.4.0",
-    "icon-file-loader": "workspace:*",
+    "glob": "^11.0.3",
+    "svgo": "^4.0.0",
+    "terser": "^5.43.1",
+    "tsx": "^4.20.3",
     "vite": "^4.1.0",
     "vitest": "^0.28.3"
   },
@@ -52,7 +63,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/noeGnh/vue3-icon-picker"
+    "url": "git+https://github.com/noeGnh/vue3-icon-picker.git"
   },
   "keywords": [
     "vue",

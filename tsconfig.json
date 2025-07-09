@@ -8,9 +8,6 @@
     {
       "path": "./packages/vue3-icon-picker/tsconfig.app.json"
     },
-    {
-      "path": "./packages/vue3-icon-picker/tsconfig.vitest.json"
-    },
     // Playground
     {
       "path": "./packages/playground/tsconfig.app.json"

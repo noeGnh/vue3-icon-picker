@@ -1,12 +1,6 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": [
-    "src/env.d.ts",
-    "src/**/*",
-    "src/**/*.vue",
-    "*.d.ts",
-    "src/assets/icons.json"
-  ],
+  "include": ["src/env.d.ts", "src/**/*", "src/**/*.vue", "*.d.ts"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
     "target": "ES6",

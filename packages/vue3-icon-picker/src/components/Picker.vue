@@ -4,7 +4,7 @@
   import { RecycleScroller } from 'vue-virtual-scroller'
   import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
-  import type { Icon, IconLibrary, ValueType } from '../interface'
+  import type { Icon, IconLibrary, ValueType } from '../types'
   import { useIconsLoader } from '../utils'
   import ItemIcon from './Icon.vue'
 
@@ -99,19 +99,19 @@
             doesNotBelongsToExcludeSearch
           )
         }),
-        'svgCode'
+        'svgCodeUrl'
       ),
       'name'
     )
   })
 
   const getValue = (icon: Icon) => {
-    return props.valueType == 'name' ? icon.name : icon.svgCode
+    return props.valueType == 'name' ? icon.name : icon.svgCodeUrl
   }
 
   const getSvgCode = (value: string) => {
     return props.valueType == 'name'
-      ? iconsList.value?.find((icon) => icon.name == value)?.svgCode || ''
+      ? iconsList.value?.find((icon) => icon.name == value)?.svgCodeUrl || ''
       : value
   }
 
@@ -197,7 +197,9 @@
                 :data="getSvgCode(value)"
                 :size="20"
                 @click.stop="
-                  onSelected(iconsList?.find((icon) => getValue(icon) == value))
+                  onSelected(
+                    iconsList?.find((icon: Icon) => getValue(icon) == value)
+                  )
                 " />
             </template>
             <div
@@ -217,7 +219,9 @@
           :size="20"
           @click.stop="
             onSelected(
-              iconsList?.find((icon) => getValue(icon) == props.modelValue)
+              iconsList?.find(
+                (icon: Icon) => getValue(icon) == props.modelValue
+              )
             )
           " />
       </template>
