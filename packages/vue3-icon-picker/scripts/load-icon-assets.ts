@@ -43,7 +43,7 @@ async function copyAndOptimizeSVGs(): Promise<void> {
         const shorterIconFormats = {
           Filled: 'F',
           Outlined: 'O',
-          Outline: 'O2',
+          Outline: 'U',
           Round: 'R',
           Sharp: 'S',
           Twotone: 'T',
@@ -88,7 +88,32 @@ ${icons}
 
       const result: Output = optimize(data, {
         multipass: true,
-        plugins: ['preset-default'],
+        plugins: [
+          // Basic cleaning (no risk)
+          'removeDoctype',
+          'removeXMLProcInst',
+          'removeComments',
+          'removeMetadata',
+          'removeEditorsNSData',
+
+          // SVG structure (conservative)
+          'collapseGroups',
+          'mergePaths',
+
+          // Styles and attributes (safe)
+          'convertStyleToAttrs',
+          'convertColors',
+          'convertPathData',
+          'convertTransform',
+
+          // Selective removal
+          'removeUselessDefs',
+          'removeEmptyContainers',
+
+          // Geometric optimization
+          'cleanupNumericValues',
+          'cleanupListOfValues',
+        ],
       })
 
       // Calculate the relative path from node_modules/@sicons

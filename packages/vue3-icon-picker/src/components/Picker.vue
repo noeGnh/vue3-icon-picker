@@ -6,7 +6,8 @@
 
   import type { Icon, IconLibrary, ValueType } from '../types'
   import { useIconsLoader } from '../utils'
-  import ItemIcon from './Icon.vue'
+  import ItemIcon from './ItemIcon.vue'
+  import SelectedIcon from './SelectedIcon.vue'
 
   export interface Props {
     searchPlaceholder?: string
@@ -191,7 +192,7 @@
             <template
               v-for="(value, i) in (props.modelValue as string[] || [])"
               :key="i">
-              <item-icon
+              <SelectedIcon
                 v-if="i < props.selectedItemsToDisplay"
                 class="item"
                 :data="getSvgCode(value)"
@@ -213,7 +214,7 @@
             </div>
           </template>
         </div>
-        <item-icon
+        <SelectedIcon
           v-else
           :data="getSvgCode(props.modelValue as string)"
           :size="20"
@@ -248,8 +249,8 @@
               <div
                 :class="{ active: isIconSelected(item) }"
                 @click="onSelected(item)">
-                <item-icon
-                  :data="item.svgCode"
+                <ItemIcon
+                  :data-url="item.svgCodeUrl"
                   :size="24"
                   :color="
                     isIconSelected(item) ? props.selectedIconColor : undefined

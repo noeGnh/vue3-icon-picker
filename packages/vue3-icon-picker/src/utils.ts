@@ -21,7 +21,7 @@ export function useIconsLoader() {
     const realIconFormats: { [key: string]: string } = {
       F: 'Filled',
       O: 'Outlined',
-      O2: 'Outline',
+      U: 'Outline',
       R: 'Round',
       S: 'Sharp',
       T: 'Twotone',
@@ -35,8 +35,8 @@ export function useIconsLoader() {
     }
 
     return [
-      restoreIconFormat(parts[0]),
-      parts.length > 1 ? realLibNames[parts[1]] : '',
+      restoreIconFormat(parts.length > 1 ? parts[1] : parts[0]),
+      parts.length > 1 ? realLibNames[parts[0]] : '',
     ]
   }
 
@@ -46,7 +46,7 @@ export function useIconsLoader() {
 
   const prepareData = async () => {
     let i = 1
-    for (const value in iconsRawList) {
+    for (const value of iconsRawList) {
       if (i && i % 5000 === 0) {
         await oneMoment()
       }
