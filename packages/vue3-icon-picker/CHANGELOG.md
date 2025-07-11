@@ -5,10 +5,26 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.1.3](https://github.com/noeGnh/vue3-icon-picker/compare/v0.1.2...v0.1.3)
+## [v0.2.0](https://github.com/noeGnh/vue3-icon-picker/compare/v0.1.4...v0.2.0)
 
 ### Commits
 
+- chore: update icons files [`c5b703c`](https://github.com/noeGnh/vue3-icon-picker/commit/c5b703c4f59054ea47f5176c94cb52ea558c8f70)
+- chore: many huge changes [`0ef0a32`](https://github.com/noeGnh/vue3-icon-picker/commit/0ef0a32e5db061a6ccb829c663ee8666fde715a8)
+- perf: many changes of plugin internal working [`6ec6fbd`](https://github.com/noeGnh/vue3-icon-picker/commit/6ec6fbd9efed5432a2971aadde493d19286c2e97)
+
+## [v0.1.4](https://github.com/noeGnh/vue3-icon-picker/compare/v0.1.3...v0.1.4) - 2024-09-20
+
+### Commits
+
+- perf: reduce icons generated json file size [`7101515`](https://github.com/noeGnh/vue3-icon-picker/commit/710151506da320023d27f0e6a6eb00d19bf70873)
+- chore: bump to v0.1.4 [`8f3c93b`](https://github.com/noeGnh/vue3-icon-picker/commit/8f3c93b6aeb5680e1aa27026ad8305756abac6e1)
+
+## [v0.1.3](https://github.com/noeGnh/vue3-icon-picker/compare/v0.1.2...v0.1.3) - 2024-05-17
+
+### Commits
+
+- chore: bump to v0.1.3 [`71d7bba`](https://github.com/noeGnh/vue3-icon-picker/commit/71d7bba289a45cede7a69ab6d2294d755b7f4ee4)
 - docs: update release notes link [`0beaf04`](https://github.com/noeGnh/vue3-icon-picker/commit/0beaf04e0c8a70e11d172d9ecf513f34c2c238f6)
 
 ## [v0.1.2](https://github.com/noeGnh/vue3-icon-picker/compare/v0.1.1...v0.1.2) - 2024-05-17
