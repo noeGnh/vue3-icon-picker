@@ -148,4 +148,4 @@ Detailed changes for each release are documented in the [release notes](https://
 
 ## License
 
-[MIT](https://github.com/noeGnh/vue3-icon-picker/blob/master/LICENSE)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://github.com/noeGnh/vue3-icon-picker/blob/master/LICENSE)
