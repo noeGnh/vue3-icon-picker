@@ -46,6 +46,7 @@
     "@sicons/ionicons5": "^0.13.0",
     "@sicons/material": "^0.13.0",
     "@sicons/tabler": "^0.13.0",
+    "@types/is-url": "^1.2.32",
     "@types/lodash.uniqby": "^4.7.7",
     "auto-changelog": "^2.4.0",
     "glob": "^11.0.3",
@@ -58,6 +59,7 @@
   "dependencies": {
     "@vueuse/core": "^9.13.0",
     "is-svg": "^5.0.0",
+    "is-url": "^1.2.4",
     "lodash.uniqby": "^4.7.0",
     "vue-virtual-scroller": "2.0.0-beta.8"
   },

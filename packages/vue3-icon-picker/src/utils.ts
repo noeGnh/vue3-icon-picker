@@ -19,18 +19,18 @@ export function useIconsLoader() {
     }
 
     const realIconFormats: { [key: string]: string } = {
-      F: 'Filled',
-      O: 'Outlined',
-      U: 'Outline',
-      R: 'Round',
-      S: 'Sharp',
-      T: 'Twotone',
-      E: 'Regular',
+      F1: 'Filled',
+      O1: 'Outlined',
+      O2: 'Outline',
+      R1: 'Round',
+      S1: 'Sharp',
+      T1: 'Twotone',
+      R2: 'Regular',
     }
 
-    const restoreIconFormat = (filename: string) => {
-      return filename.replace(/([A-Z])(?=\.\w+$)/, (match, shortFormat) => {
-        return realIconFormats[shortFormat] || shortFormat
+    function restoreIconFormat(filename: string): string {
+      return filename.replace(/(F1|O1|O2|R1|S1|T1|R2)(?=$|\.)/, (match) => {
+        return realIconFormats[match] || match
       })
     }
 

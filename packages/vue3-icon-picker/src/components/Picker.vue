@@ -4,10 +4,10 @@
   import { RecycleScroller } from 'vue-virtual-scroller'
   import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
+  import { getIconFromCache } from '../cache'
   import type { Icon, IconLibrary, ValueType } from '../types'
   import { useIconsLoader } from '../utils'
-  import ItemIcon from './ItemIcon.vue'
-  import SelectedIcon from './SelectedIcon.vue'
+  import ItemIcon from './Icon.vue'
 
   export interface Props {
     searchPlaceholder?: string
@@ -107,10 +107,10 @@
   })
 
   const getValue = (icon: Icon) => {
-    return props.valueType == 'name' ? icon.name : icon.svgCodeUrl
+    return props.valueType == 'name' ? icon.name : getIconFromCache(icon.name)
   }
 
-  const getSvgCode = (value: string) => {
+  const getSvgCodeUrl = (value: string) => {
     return props.valueType == 'name'
       ? iconsList.value?.find((icon) => icon.name == value)?.svgCodeUrl || ''
       : value
@@ -125,7 +125,10 @@
           ) > -1
         )
       return false
-    } else return props.modelValue == getValue(icon)
+    } else {
+      if (!props.modelValue) return false
+      return props.modelValue == getValue(icon)
+    }
   }
 
   const onSelected = (icon: Icon | undefined) => {
@@ -192,10 +195,10 @@
             <template
               v-for="(value, i) in (props.modelValue as string[] || [])"
               :key="i">
-              <SelectedIcon
+              <ItemIcon
                 v-if="i < props.selectedItemsToDisplay"
                 class="item"
-                :data="getSvgCode(value)"
+                :data="getSvgCodeUrl(value)"
                 :size="20"
                 @click.stop="
                   onSelected(
@@ -214,9 +217,9 @@
             </div>
           </template>
         </div>
-        <SelectedIcon
+        <ItemIcon
           v-else
-          :data="getSvgCode(props.modelValue as string)"
+          :data="getSvgCodeUrl(props.modelValue as string)"
           :size="20"
           @click.stop="
             onSelected(
@@ -247,10 +250,11 @@
             :item-secondary-size="width / 4">
             <template #default="{ item }">
               <div
+                :key="item.name"
                 :class="{ active: isIconSelected(item) }"
                 @click="onSelected(item)">
                 <ItemIcon
-                  :data-url="item.svgCodeUrl"
+                  :data="item.svgCodeUrl"
                   :size="24"
                   :color="
                     isIconSelected(item) ? props.selectedIconColor : undefined

@@ -127,6 +127,9 @@ importers:
       is-svg:
         specifier: ^5.0.0
         version: 5.0.0
+      is-url:
+        specifier: ^1.2.4
+        version: 1.2.4
       lodash.uniqby:
         specifier: ^4.7.0
         version: 4.7.0
@@ -161,6 +164,9 @@ importers:
       '@sicons/tabler':
         specifier: ^0.13.0
         version: 0.13.0
+      '@types/is-url':
+        specifier: ^1.2.32
+        version: 1.2.32
       '@types/lodash.uniqby':
         specifier: ^4.7.7
         version: 4.7.7
@@ -1038,6 +1044,9 @@ packages:
 
   '@types/estree@1.0.6':
     resolution: {integrity: sha512-AYnb1nQyY49te+VRAVgmzfcgjYS91mY5P0TKUDCLEM+gNnA+3T6rWITXRLYCpahpqSQbN5cE+gHpnPyXjHWxcw==}
+
+  '@types/is-url@1.2.32':
+    resolution: {integrity: sha512-46VLdbWI8Sc+hPexQ6NLNR2YpoDyDZIpASHkJQ2Yr+Kf9Giw6LdCTkwOdsnHKPQeh7xTjTmSnxbE8qpxYuCiHA==}
 
   '@types/json-schema@7.0.15':
     resolution: {integrity: sha512-5+fP8P8MFNC+AyZCDxrB2pkZFPGzqQWUzpSeuuVLvm8VMcorNYavBqoFcxK8bQz4Qsbn4oUEEem4wDLfcysGHA==}
@@ -2521,6 +2530,9 @@ packages:
   is-typed-array@1.1.13:
     resolution: {integrity: sha512-uZ25/bUAlUY5fR4OKT4rZQEBrzQWYV9ZJYGGsUmEJ6thodVJ1HX64ePQ6Z0qPWP+m+Uq6e9UugrE38jeYsDSMw==}
     engines: {node: '>= 0.4'}
+
+  is-url@1.2.4:
+    resolution: {integrity: sha512-ITvGim8FhRiYe4IQ5uHSkj7pVaPDrCTkNd3yq3cV7iZAcJdHTUMPMEHcqSOy9xZ9qFenQCvi+2wjH9a1nXqHww==}
 
   is-weakref@1.0.2:
     resolution: {integrity: sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==}
@@ -4839,6 +4851,8 @@ snapshots:
 
   '@types/estree@1.0.6': {}
 
+  '@types/is-url@1.2.32': {}
+
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29':
@@ -6724,6 +6738,8 @@ snapshots:
       which-typed-array: 1.1.15
     optional: true
 
+  is-url@1.2.4: {}
+
   is-weakref@1.0.2:
     dependencies:
       call-bind: 1.0.7
@@ -7910,7 +7926,7 @@ snapshots:
 
   unctx@2.3.1(webpack-sources@3.2.3):
     dependencies:
-      acorn: 8.12.1
+      acorn: 8.15.0
       estree-walker: 3.0.3
       magic-string: 0.30.11
       unplugin: 1.14.1(webpack-sources@3.2.3)

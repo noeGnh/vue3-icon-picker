@@ -41,21 +41,21 @@ async function copyAndOptimizeSVGs(): Promise<void> {
         }
 
         const shorterIconFormats = {
-          Filled: 'F',
-          Outlined: 'O',
-          Outline: 'U',
-          Round: 'R',
-          Sharp: 'S',
-          Twotone: 'T',
-          Regular: 'E',
+          Filled: 'F1',
+          Outlined: 'O1',
+          Outline: 'O2',
+          Round: 'R1',
+          Sharp: 'S1',
+          Twotone: 'T1',
+          Regular: 'R2',
         }
 
         const shortIconFormat = (filename: string) => {
           for (const [longFormat, shortFormat] of Object.entries(
             shorterIconFormats
           )) {
-            if (filename.includes(longFormat)) {
-              filename = filename.replace(longFormat, shortFormat)
+            if (filename.endsWith(longFormat)) {
+              filename = filename.slice(0, -longFormat.length) + shortFormat
             }
           }
           return filename
