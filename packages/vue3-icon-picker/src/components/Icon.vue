@@ -1,9 +1,8 @@
 <script setup lang="ts">
-  import isSVG from 'is-svg'
   import isUrl from 'is-url'
 
   import { getIconFromCache, setIconInCache } from '../cache'
-  import { useIconsLoader } from '../utils'
+  import { isSVG, useIconsLoader } from '../utils'
 
   export interface Props {
     data: string

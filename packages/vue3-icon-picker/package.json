@@ -58,7 +58,6 @@
   },
   "dependencies": {
     "@vueuse/core": "^9.13.0",
-    "is-svg": "^5.0.0",
     "is-url": "^1.2.4",
     "lodash.uniqby": "^4.7.0",
     "vue-virtual-scroller": "2.0.0-beta.8"

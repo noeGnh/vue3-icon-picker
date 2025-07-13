@@ -1,6 +1,22 @@
 import iconsRawList from './icons'
 import type { Icon } from './types'
 
+/**
+ * Use this composable to load icons list.
+ *
+ * Icons list is fetched from remote URL.
+ * The list is an array of objects with following properties:
+ * - id: number
+ * - name: string
+ * - svgCodeUrl: string
+ * - library: string
+ *
+ * The composable returns an object with two properties:
+ * - iconsList: Ref<Icon[]> - the list of icons
+ * - prepareData: () => Promise<void> - a function to refetch the list
+ *
+ * @returns {{ iconsList: Ref<Icon[]>, prepareData: () => Promise<Icon[]> }}
+ */
 export function useIconsLoader() {
   const iconsList = ref<Icon[]>([])
 
@@ -68,5 +84,33 @@ export function useIconsLoader() {
   return {
     iconsList,
     prepareData,
+  }
+}
+
+/**
+ * Checks if the given string is a valid SVG document.
+ *
+ * @param {string} input - The string to be checked.
+ * @return {boolean} Returns true if the string is a valid SVG document, false otherwise.
+ */
+export function isSVG(input: string): boolean {
+  const svgRegex = /^\s*<svg\b[^>]*>.*<\/svg>\s*$/is
+
+  try {
+    if (svgRegex.test(input)) {
+      const parser = new DOMParser()
+      const doc = parser.parseFromString(input, 'image/svg+xml')
+
+      const parserErrors = doc.getElementsByTagName('parsererror')
+      if (parserErrors.length > 0) {
+        return false
+      }
+
+      const svgElements = doc.getElementsByTagName('svg')
+      return svgElements.length > 0 && svgElements[0].parentNode === doc
+    }
+    return false
+  } catch (e) {
+    return false
   }
 }
