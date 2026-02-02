@@ -8,7 +8,7 @@ export function getIconFromCache(iconId: string): string | undefined {
 export function setIconInCache(iconId: string, svg: string): void {
   if (cache.size >= MAX_CACHE_SIZE) {
     const firstKey = cache.keys().next().value
-    cache.delete(firstKey)
+    if (firstKey) cache.delete(firstKey)
   }
   cache.set(iconId, svg)
 }

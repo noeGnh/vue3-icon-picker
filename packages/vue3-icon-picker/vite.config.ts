@@ -2,7 +2,7 @@
 import vue from '@vitejs/plugin-vue'
 import AutoImport from 'unplugin-auto-import/vite'
 import { fileURLToPath } from 'url'
-import { defineConfig } from 'vite'
+import { defineConfig, type UserConfig } from 'vite'
 
 export default defineConfig({
   plugins: [
@@ -74,7 +74,4 @@ export default defineConfig({
       },
     },
   },
-  test: {
-    environment: 'jsdom',
-  },
-})
+}) as UserConfig

@@ -390,14 +390,15 @@
     width: 100%;
     border-radius: 0;
     line-height: 30px;
-    border: 1px solid #c2c2c2;
+    border: 0.5px solid #c2c2c2;
     border-top: none;
     padding-right: 1em;
     padding-left: 1em;
+    background: #fff;
   }
 
   .v3ip__search input:focus-visible {
-    border: 1px solid #858585;
+    border: 0.5px solid #858585;
     outline: 0;
   }
 

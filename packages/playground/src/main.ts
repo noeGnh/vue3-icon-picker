@@ -6,4 +6,5 @@ import App from './App.vue'
 // WTF !!!
 import(import.meta.env.DEV ? './style.css' : 'vue3-icon-picker/dist/style.css')
 
+// @ts-ignore
 createApp(App).use(Vue3IconPicker).mount('#app')

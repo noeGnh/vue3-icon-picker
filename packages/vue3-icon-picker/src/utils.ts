@@ -94,6 +94,7 @@ export function useIconsLoader() {
  * @return {boolean} Returns true if the string is a valid SVG document, false otherwise.
  */
 export function isSVG(input: string): boolean {
+  // @ts-ignore
   const svgRegex = /^\s*<svg\b[^>]*>.*<\/svg>\s*$/is
 
   try {

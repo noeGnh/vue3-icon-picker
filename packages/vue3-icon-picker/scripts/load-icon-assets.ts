@@ -61,6 +61,7 @@ async function copyAndOptimizeSVGs(): Promise<void> {
           return filename
         }
 
+        // @ts-ignore
         return `  '${shorterLibNames[folderName]}_${shortIconFormat(
           fileName
         )}',`
