@@ -203,7 +203,7 @@
         <div v-if="props.multiple" class="multiple">
           <template v-if="Array.isArray(props.modelValue)">
             <template
-              v-for="(value, i) in (props.modelValue as string[] || [])"
+              v-for="(value, i) in (props.modelValue as string[]) || []"
               :key="i">
               <ItemIcon
                 v-if="i < props.selectedItemsToDisplay"
@@ -270,8 +270,8 @@
                     isIconSelected(item)
                       ? props.selectedIconColor
                       : props.theme == 'dark'
-                      ? '#e5e7eb'
-                      : '#222'
+                        ? '#e5e7eb'
+                        : '#222'
                   " />
               </div>
             </template>

@@ -151,8 +151,8 @@ export function isURL(string: string): boolean {
    */
   var protocolAndDomainRE = /^(?:\w+:)?\/\/(\S+)$/
 
-  var localhostDomainRE = /^localhost[\:?\d]*(?:[^\:?\d]\S*)?$/
-  var nonLocalhostDomainRE = /^[^\s\.]+\.\S{2,}$/
+  var localhostDomainRE = /^localhost[:?\d]*(?:[^:?\d]\S*)?$/
+  var nonLocalhostDomainRE = /^[^\s.]+\.\S{2,}$/
 
   if (typeof string !== 'string') {
     return false
