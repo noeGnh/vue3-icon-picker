@@ -25,7 +25,7 @@ async function copyAndOptimizeSVGs(): Promise<void> {
 
     // Generate path mapping for plugin
     const icons = files
-      .map((file) => {
+      .map((file, i) => {
         const fileName = path.basename(file).replace(/\.svg$/, '')
         const folderName = path.dirname(file).split('/').pop() || ''
 
@@ -62,9 +62,9 @@ async function copyAndOptimizeSVGs(): Promise<void> {
         }
 
         // @ts-ignore
-        return `  '${shorterLibNames[folderName]}_${shortIconFormat(
-          fileName
-        )}',`
+        return `"${shorterLibNames[folderName]}_${shortIconFormat(fileName)}"${
+          i === files.length - 1 ? '' : ','
+        }`
       })
       .join('\n')
 
@@ -80,6 +80,17 @@ ${icons}
 
     fs.mkdirSync(path.dirname(iconsOutputPath), { recursive: true })
     fs.writeFileSync(iconsOutputPath, minifiedIconsContent)
+
+    // Generate icons-list.ts file
+    const iconsListContent = `[${icons}]`
+
+    const iconsListOutputPath = path.join(__dirname, '../icons-list.json')
+
+    fs.mkdirSync(path.dirname(iconsListOutputPath), { recursive: true })
+    fs.writeFileSync(
+      iconsListOutputPath,
+      JSON.stringify(JSON.parse(iconsListContent))
+    )
 
     // Copy and optimize SVG files
     const assetsDir = path.join(__dirname, '../src/assets/sicons')

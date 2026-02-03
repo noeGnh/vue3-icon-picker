@@ -1,6 +1,6 @@
 import type { Ref } from 'vue'
 
-import iconsRawList from './icons'
+// import iconsRawList from './icons'
 import type { Icon } from './types'
 
 /**
@@ -66,6 +66,21 @@ export function useIconsLoader(): {
   }
 
   const prepareData = async () => {
+    let iconsRawList: string[] = []
+    try {
+      iconsRawList = JSON.parse(localStorage.getItem('v3ip-icons-list') || '[]')
+
+      if (!iconsRawList || iconsRawList.length === 0) {
+        const response = await fetch(
+          'https://raw.githubusercontent.com/noeGnh/vue3-icon-picker/master/packages/vue3-icon-picker/icons-list.json'
+        )
+        iconsRawList = await response.json()
+        localStorage.setItem('v3ip-icons-list', JSON.stringify(iconsRawList))
+      }
+    } catch (error: any) {
+      //
+    }
+
     let i = 1
     for (const value of iconsRawList) {
       if (i && i % 5000 === 0) {
