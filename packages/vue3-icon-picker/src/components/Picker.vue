@@ -262,7 +262,11 @@
                   :data="item.svgCodeUrl"
                   :size="24"
                   :color="
-                    isIconSelected(item) ? props.selectedIconColor : undefined
+                    isIconSelected(item)
+                      ? props.selectedIconColor
+                      : props.theme == 'dark'
+                      ? '#e5e7eb'
+                      : '#222'
                   " />
               </div>
             </template>
@@ -356,11 +360,11 @@
   }
 
   .v3ip__custom-select.v3ip__small .v3ip__selected.open:after {
-    top: 6px;
+    top: 5px;
   }
 
   .v3ip__custom-select.v3ip__medium .v3ip__selected.open:after {
-    top: 12px;
+    top: 10px;
   }
 
   .v3ip__custom-select.v3ip__large .v3ip__selected.open:after {

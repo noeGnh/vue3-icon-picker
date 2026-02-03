@@ -32,8 +32,7 @@
     "test": "vitest",
     "test-ci": "vitest --run",
     "version": "auto-changelog --template keepachangelog --hide-credit -p && git add CHANGELOG.md",
-    "load-icon-assets": "tsx scripts/load-icon-assets.ts",
-    "load-icon-map": "tsx scripts/load-icon-map.ts"
+    "load-icon-assets": "tsx scripts/load-icon-assets.ts"
   },
   "peerDependencies": {
     "vue": "^3.4.0"

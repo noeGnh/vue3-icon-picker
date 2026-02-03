@@ -114,7 +114,7 @@
     display: flex;
     justify-content: center;
     box-sizing: border-box;
-    padding-top: 15px;
+    padding-top: 10px;
   }
 
   .container {
@@ -127,7 +127,7 @@
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
   }
 
   .button {

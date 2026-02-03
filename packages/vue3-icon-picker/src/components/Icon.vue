@@ -104,5 +104,6 @@
     width: v-bind(size);
     height: v-bind(size);
     color: v-bind(color);
+    fill: v-bind(color);
   }
 </style>
