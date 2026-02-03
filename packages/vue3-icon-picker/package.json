@@ -46,19 +46,17 @@
     "@sicons/ionicons5": "^0.13.0",
     "@sicons/material": "^0.13.0",
     "@sicons/tabler": "^0.13.0",
-    "@types/is-url": "^1.2.32",
-    "@types/lodash.uniqby": "^4.7.7",
-    "auto-changelog": "^2.4.0",
-    "glob": "^11.0.3",
+    "@types/lodash.uniqby": "^4.7.9",
+    "auto-changelog": "^2.5.0",
+    "glob": "^11.1.0",
     "svgo": "^4.0.0",
-    "terser": "^5.43.1",
-    "tsx": "^4.20.3",
-    "vite": "^4.1.0",
-    "vitest": "^0.28.3"
+    "terser": "^5.46.0",
+    "tsx": "^4.21.0",
+    "vite": "^4.5.14",
+    "vitest": "^0.28.5"
   },
   "dependencies": {
-    "@vueuse/core": "^9.13.0",
-    "is-url": "^1.2.4",
+    "@vueuse/core": "^14.2.0",
     "lodash.uniqby": "^4.7.0",
     "vue-virtual-scroller": "2.0.0-beta.8"
   },

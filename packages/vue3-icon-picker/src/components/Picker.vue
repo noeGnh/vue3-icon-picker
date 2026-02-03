@@ -1,12 +1,13 @@
 <script setup lang="ts">
   import { onClickOutside, useElementSize } from '@vueuse/core'
   import uniqBy from 'lodash.uniqby'
+  import { useTemplateRef } from 'vue'
   import { RecycleScroller } from 'vue-virtual-scroller'
   import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
   import { getIconFromCache } from '../cache'
   import type { Icon, IconLibrary, InputSize, Theme, ValueType } from '../types'
-  import { useIconsLoader } from '../utils'
+  import { isSVG, useIconsLoader } from '../utils'
   import ItemIcon from './Icon.vue'
 
   export interface Props {
@@ -60,7 +61,9 @@
   const searchQuery = ref<string>('')
   const open = ref<boolean>(false)
 
-  const { iconsList } = useIconsLoader()
+  const { iconsList, prepareData } = useIconsLoader()
+
+  prepareData()
 
   const filteredIcons = computed(() => {
     return uniqBy(
@@ -115,7 +118,7 @@
   }
 
   const getSvgCodeOrUrl = (value: string) => {
-    return props.valueType == 'name'
+    return props.valueType == 'name' && !isSVG(value)
       ? iconsList.value?.find((icon) => icon.name == value)?.svgUrl || ''
       : value
   }
@@ -171,10 +174,10 @@
     }
   }
 
-  const picker = ref()
+  const picker = useTemplateRef<HTMLDivElement>('picker')
   onClickOutside(picker, () => (open.value = false))
 
-  const scroller = ref()
+  const scroller = useTemplateRef<HTMLDivElement>('scroller')
   const { width } = useElementSize(scroller)
 
   const slots = useSlots()

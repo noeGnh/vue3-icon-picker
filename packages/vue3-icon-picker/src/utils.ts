@@ -1,3 +1,5 @@
+import type { Ref } from 'vue'
+
 import iconsRawList from './icons'
 import type { Icon } from './types'
 
@@ -17,7 +19,10 @@ import type { Icon } from './types'
  *
  * @returns {{ iconsList: Ref<Icon[]>, prepareData: () => Promise<Icon[]> }}
  */
-export function useIconsLoader() {
+export function useIconsLoader(): {
+  iconsList: Ref<Icon[]>
+  prepareData: () => Promise<Icon[]>
+} {
   const iconsList = ref<Icon[]>([])
 
   const extractIconData = (key: string) => {
@@ -79,8 +84,6 @@ export function useIconsLoader() {
     return iconsList.value
   }
 
-  prepareData()
-
   return {
     iconsList,
     prepareData,
@@ -114,4 +117,45 @@ export function isSVG(input: string): boolean {
   } catch (e) {
     return false
   }
+}
+
+/**
+ * Loosely validate a URL `string`.
+ *
+ * @param {string} string
+ * @return {boolean}
+ */
+export function isURL(string: string): boolean {
+  /**
+   * RegExps.
+   * A URL must match #1 and then at least one of #2/#3.
+   * Use two levels of REs to avoid REDOS.
+   */
+  var protocolAndDomainRE = /^(?:\w+:)?\/\/(\S+)$/
+
+  var localhostDomainRE = /^localhost[\:?\d]*(?:[^\:?\d]\S*)?$/
+  var nonLocalhostDomainRE = /^[^\s\.]+\.\S{2,}$/
+
+  if (typeof string !== 'string') {
+    return false
+  }
+
+  var match = string.match(protocolAndDomainRE)
+  if (!match) {
+    return false
+  }
+
+  var everythingAfterProtocol = match[1]
+  if (!everythingAfterProtocol) {
+    return false
+  }
+
+  if (
+    localhostDomainRE.test(everythingAfterProtocol) ||
+    nonLocalhostDomainRE.test(everythingAfterProtocol)
+  ) {
+    return true
+  }
+
+  return false
 }

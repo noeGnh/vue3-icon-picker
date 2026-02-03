@@ -1,8 +1,6 @@
 <script setup lang="ts">
-  import isUrl from 'is-url'
-
   import { getIconFromCache, setIconInCache } from '../cache'
-  import { isSVG, useIconsLoader } from '../utils'
+  import { isSVG, isURL, useIconsLoader } from '../utils'
 
   export interface Props {
     data: string
@@ -14,6 +12,8 @@
     color: undefined,
     size: 24,
   })
+
+  const { prepareData } = useIconsLoader()
 
   const color = computed(() => props.color)
   const size = computed(() =>
@@ -39,7 +39,7 @@
       return
     }
 
-    if (isLoading.value) return
+    if (isLoading.value || !url) return
 
     isLoading.value = true
     abortController = new AbortController()
@@ -73,13 +73,11 @@
   watch(
     () => props.data,
     async (val) => {
-      if (isUrl(val)) {
+      if (isURL(val)) {
         fetchData(val)
       } else if (isSVG(val)) {
         svgCode.value = val
       } else {
-        const { prepareData } = useIconsLoader()
-
         const iconsList = await prepareData()
 
         const url = iconsList?.find((icon) => icon.name == val)?.svgUrl || ''
