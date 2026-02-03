@@ -1,5 +1,10 @@
 import type { Ref } from 'vue'
 
+import {
+  ICONS_ASSETS_URL,
+  ICONS_LIST_URL,
+  ICONS_STORAGE_KEY,
+} from './constants'
 // import iconsRawList from './icons'
 import type { Icon } from './types'
 
@@ -68,14 +73,12 @@ export function useIconsLoader(): {
   const prepareData = async () => {
     let iconsRawList: string[] = []
     try {
-      iconsRawList = JSON.parse(localStorage.getItem('v3ip-icons-list') || '[]')
+      iconsRawList = JSON.parse(localStorage.getItem(ICONS_STORAGE_KEY) || '[]')
 
       if (!iconsRawList || iconsRawList.length === 0) {
-        const response = await fetch(
-          'https://raw.githubusercontent.com/noeGnh/vue3-icon-picker/master/packages/vue3-icon-picker/icons-list.json'
-        )
+        const response = await fetch(ICONS_LIST_URL)
         iconsRawList = await response.json()
-        localStorage.setItem('v3ip-icons-list', JSON.stringify(iconsRawList))
+        localStorage.setItem(ICONS_STORAGE_KEY, JSON.stringify(iconsRawList))
       }
     } catch (error: any) {
       //
@@ -90,7 +93,7 @@ export function useIconsLoader(): {
       iconsList.value.push({
         id: i,
         name: name,
-        svgUrl: `https://raw.githubusercontent.com/noeGnh/vue3-icon-picker/master/packages/vue3-icon-picker/src/assets/sicons/${library}/${name}.svg`,
+        svgUrl: `${ICONS_ASSETS_URL}/${library}/${name}.svg`,
         library: library,
       })
       i += 1
