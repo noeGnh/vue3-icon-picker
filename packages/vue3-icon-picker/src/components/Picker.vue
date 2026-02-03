@@ -210,6 +210,7 @@
                 class="item"
                 :data="getSvgCodeOrUrl(value)"
                 :size="20"
+                :color="props.theme == 'dark' ? '#e5e7eb' : '#222'"
                 @click.stop="
                   onSelected(
                     iconsList?.find((icon: Icon) => getValue(icon) == value)
@@ -229,6 +230,7 @@
           v-else
           :data="getSvgCodeOrUrl(props.modelValue as string)"
           :size="20"
+          :color="props.theme == 'dark' ? '#e5e7eb' : '#222'"
           @click.stop="
             onSelected(
               iconsList?.find(
