@@ -22,7 +22,7 @@ yarn add vue3-icon-picker
 
 ## About
 
-This package use icons from [`xicons`](https://github.com/07akioni/xicons) with SVG components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons), [`material-design-icons`](https://github.com/google/material-design-icons), [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome), [`tabler-icons`](https://github.com/tabler/tabler-icons) and [`carbon`](https://github.com/carbon-design-system/carbon/tree/main/packages/icons). Check this website for view icons list: <https://www.xicons.org>.
+This package use icons from [`xicons`](https://github.com/07akioni/xicons) with SVG components integrated from [`fluentui-system-icons`](https://github.com/microsoft/fluentui-system-icons), [`ionicons`](https://github.com/ionic-team/ionicons), [`ant-design-icons`](https://github.com/ant-design/ant-design-icons), [`material-design-icons`](https://github.com/google/material-design-icons), [`Font-Awesome`](https://github.com/FortAwesome/Font-Awesome), [`tabler-icons`](https://github.com/tabler/tabler-icons) and [`carbon`](https://github.com/carbon-design-system/carbon/tree/main/packages/icons). Check this website for view icons list: [https://www.xicons.org](https://www.xicons.org).
 
 ## Demo
 
@@ -89,6 +89,8 @@ You can then use the component in your template
 | includeSearch          | string                                                                                          | The search query whose results must be included                                          | undefined         | No       |
 | excludeSearch          | string                                                                                          | The search query whose results must be excluded                                          | undefined         | No       |
 | emptyText              | string                                                                                          | Empty text                                                                               | 'Nothing to show' | No       |
+| inputSize              | 'small' / 'medium' / 'large'                                                                    | Size of input                                                                            | 'medium'          | No       |
+| theme                  | 'dark' / 'light'                                                                                | Picker theme                                                                             | 'light'           | No       |
 
 ## Slots
 

@@ -5,7 +5,7 @@
   import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
   import { getIconFromCache } from '../cache'
-  import type { Icon, IconLibrary, ValueType } from '../types'
+  import type { Icon, IconLibrary, InputSize, Theme, ValueType } from '../types'
   import { useIconsLoader } from '../utils'
   import ItemIcon from './Icon.vue'
 
@@ -28,6 +28,8 @@
     includeSearch?: string
     excludeSearch?: string
     emptyText?: string
+    inputSize?: InputSize
+    theme?: Theme
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -48,6 +50,8 @@
     includeSearch: undefined,
     excludeSearch: undefined,
     emptyText: 'Nothing to show',
+    inputSize: 'medium',
+    theme: 'light',
   })
 
   const emits = defineEmits(['change', 'update:modelValue'])
@@ -180,7 +184,10 @@
 </script>
 
 <template>
-  <div ref="picker" class="v3ip__custom-select" @blur="open = false">
+  <div
+    ref="picker"
+    :class="`v3ip__custom-select v3ip__${props.inputSize} v3ip__${props.theme}`"
+    @blur="open = false">
     <div
       class="v3ip__selected"
       :class="{ open: open, disabled: props.disabled }"
@@ -209,11 +216,9 @@
             <div
               v-if="props.modelValue?.length > props.selectedItemsToDisplay"
               class="item">
-              <b
-                >+{{
-                  props.modelValue?.length - props.selectedItemsToDisplay
-                }}</b
-              >
+              <b>
+                +{{ props.modelValue?.length - props.selectedItemsToDisplay }}
+              </b>
             </div>
           </template>
         </div>
@@ -280,8 +285,6 @@
     width: 100%;
     text-align: left;
     outline: none;
-    height: 36px;
-    line-height: 36px;
     min-width: 200px;
   }
 
@@ -294,9 +297,35 @@
     padding-right: 1.4em;
     cursor: pointer;
     user-select: none;
-    min-height: 36px;
     display: flex;
     align-items: center;
+  }
+
+  .v3ip__custom-select.v3ip__small {
+    height: 24px;
+    line-height: 24px;
+  }
+
+  .v3ip__custom-select.v3ip__small .v3ip__selected {
+    min-height: 24px;
+  }
+
+  .v3ip__custom-select.v3ip__medium {
+    height: 34px;
+    line-height: 34px;
+  }
+
+  .v3ip__custom-select.v3ip__medium .v3ip__selected {
+    min-height: 34px;
+  }
+
+  .v3ip__custom-select.v3ip__large {
+    height: 40px;
+    line-height: 40px;
+  }
+
+  .v3ip__custom-select.v3ip__large .v3ip__selected {
+    min-height: 40px;
   }
 
   .v3ip__custom-select .v3ip__selected .multiple {
@@ -324,18 +353,40 @@
     -ms-transform: rotate(180deg);
     -o-transform: rotate(180deg);
     transform: rotate(180deg);
+  }
+
+  .v3ip__custom-select.v3ip__small .v3ip__selected.open:after {
+    top: 6px;
+  }
+
+  .v3ip__custom-select.v3ip__medium .v3ip__selected.open:after {
     top: 12px;
+  }
+
+  .v3ip__custom-select.v3ip__large .v3ip__selected.open:after {
+    top: 14px;
   }
 
   .v3ip__custom-select .v3ip__selected:after {
     position: absolute;
     content: '';
-    top: 17px;
     right: 1em;
     width: 0;
     height: 0;
     border: 5px solid transparent;
     border-color: #333639 transparent transparent transparent;
+  }
+
+  .v3ip__custom-select.v3ip__small .v3ip__selected:after {
+    top: 12px;
+  }
+
+  .v3ip__custom-select.v3ip__medium .v3ip__selected:after {
+    top: 16px;
+  }
+
+  .v3ip__custom-select.v3ip__large .v3ip__selected:after {
+    top: 20px;
   }
 
   .v3ip__custom-select .v3ip__selected.disabled {
@@ -398,8 +449,13 @@
   }
 
   .v3ip__search input:focus-visible {
-    border: 0.5px solid #858585;
+    border: 0.5px solid #c2c2c2;
+    border-top: none;
     outline: 0;
+  }
+
+  .v3ip__search input::placeholder {
+    color: #c2c2c2;
   }
 
   .v3ip__empty {
@@ -416,6 +472,67 @@
 
   .v3ip__empty > .default-text {
     text-align: center;
+  }
+</style>
+
+<style scoped>
+  .v3ip__dark.v3ip__custom-select .v3ip__selected {
+    background-color: #1f1f23;
+    border-color: #3a3a3f;
+    color: #e5e7eb;
+  }
+
+  .v3ip__dark.v3ip__custom-select .v3ip__selected .placeholder {
+    color: #9ca3af;
+  }
+
+  .v3ip__dark.v3ip__custom-select .v3ip__selected.open {
+    border-color: #52525b;
+  }
+
+  .v3ip__dark.v3ip__custom-select .v3ip__selected:after {
+    border-color: #e5e7eb transparent transparent transparent;
+  }
+
+  .v3ip__dark.v3ip__custom-select .v3ip__selected.disabled {
+    background-color: #2a2a2e;
+    color: #6b7280;
+    cursor: not-allowed;
+  }
+
+  .v3ip__dark.v3ip__custom-select .v3ip__items {
+    background-color: #1f1f23;
+    border-color: #3a3a3f;
+    color: #e5e7eb;
+  }
+
+  .v3ip__dark.v3ip__custom-select .v3ip__items div {
+    color: #e5e7eb;
+  }
+
+  .v3ip__dark.v3ip__custom-select .v3ip__items div:hover {
+    background-color: #2a2a2e;
+  }
+
+  .v3ip__dark.v3ip__custom-select .v3ip__items div.active {
+    background-color: v-bind(selectedIconBgColor);
+  }
+
+  .v3ip__dark .v3ip__search input,
+  .v3ip__dark .v3ip__search input:focus-visible {
+    background-color: #1f1f23;
+    border-color: #3a3a3f;
+    color: #e5e7eb;
+  }
+
+  .v3ip__dark .v3ip__search input::placeholder {
+    color: #9ca3af;
+  }
+
+  .v3ip__dark .v3ip__empty {
+    background-color: #1f1f23;
+    border-color: #3a3a3f;
+    color: #9ca3af;
   }
 </style>
 

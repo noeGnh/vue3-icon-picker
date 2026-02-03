@@ -10,6 +10,10 @@ export type IconLibrary =
 
 export type ValueType = 'name' | 'svg'
 
+export type InputSize = 'small' | 'medium' | 'large'
+
+export type Theme = 'dark' | 'light'
+
 export interface Icon {
   id: number
   name: string
