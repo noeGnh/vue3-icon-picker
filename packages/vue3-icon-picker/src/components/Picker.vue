@@ -104,7 +104,7 @@
             doesNotBelongsToExcludeSearch
           )
         }),
-        'svgCodeUrl'
+        'svgUrl'
       ),
       'name'
     )
@@ -114,9 +114,9 @@
     return props.valueType == 'name' ? icon.name : getIconFromCache(icon.name)
   }
 
-  const getSvgCodeUrl = (value: string) => {
+  const getSvgCodeOrUrl = (value: string) => {
     return props.valueType == 'name'
-      ? iconsList.value?.find((icon) => icon.name == value)?.svgCodeUrl || ''
+      ? iconsList.value?.find((icon) => icon.name == value)?.svgUrl || ''
       : value
   }
 
@@ -205,7 +205,7 @@
               <ItemIcon
                 v-if="i < props.selectedItemsToDisplay"
                 class="item"
-                :data="getSvgCodeUrl(value)"
+                :data="getSvgCodeOrUrl(value)"
                 :size="20"
                 @click.stop="
                   onSelected(
@@ -224,7 +224,7 @@
         </div>
         <ItemIcon
           v-else
-          :data="getSvgCodeUrl(props.modelValue as string)"
+          :data="getSvgCodeOrUrl(props.modelValue as string)"
           :size="20"
           @click.stop="
             onSelected(
@@ -259,7 +259,7 @@
                 :class="{ active: isIconSelected(item) }"
                 @click="onSelected(item)">
                 <ItemIcon
-                  :data="item.svgCodeUrl"
+                  :data="item.svgUrl"
                   :size="24"
                   :color="
                     isIconSelected(item)

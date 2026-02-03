@@ -1,6 +1,7 @@
 <script setup lang="ts">
   const selection = ref(null)
   const darkMode = ref<boolean>(false)
+  const clearable = ref<boolean>(false)
   const multipleSelection = ref<boolean>(false)
   const selectedLibraries = ref<string[]>(['fa'])
   const inputSize = ref<'small' | 'medium' | 'large'>('medium')
@@ -33,10 +34,17 @@
   const toggleMultipleSelection = () => {
     selection.value = null
     multipleSelection.value = !multipleSelection.value
+
+    if (multipleSelection.value) clearable.value = false
   }
 
   const toggleDarkMode = () => {
     darkMode.value = !darkMode.value
+  }
+
+  const toggleClearable = () => {
+    if (multipleSelection.value) return
+    clearable.value = !clearable.value
   }
 </script>
 
@@ -89,6 +97,12 @@
         @click="toggleDarkMode()">
         Dark mode
       </div>
+      <div
+        class="button"
+        :class="{ selected: clearable, disabled: multipleSelection }"
+        @click="toggleClearable()">
+        Make clearable
+      </div>
     </div>
     <hr />
     <Vue3IconPicker
@@ -96,7 +110,7 @@
       value-type="svg"
       :icon-library="selectedLibraries"
       :multiple="multipleSelection"
-      :clearable="!multipleSelection"
+      :clearable="clearable"
       selected-icon-bg-color="#6495ED"
       selected-icon-color="white"
       placeholder="Select icon(s)"
@@ -115,6 +129,7 @@
     justify-content: center;
     box-sizing: border-box;
     padding-top: 10px;
+    font-family: Georgia, 'Times New Roman', Times, sans-serif;
   }
 
   .container {
@@ -142,5 +157,10 @@
     border: 1px solid #6495ed;
     background-color: #6495ed;
     color: white;
+  }
+
+  .disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
   }
 </style>

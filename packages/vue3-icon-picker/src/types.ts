@@ -17,7 +17,7 @@ export type Theme = 'dark' | 'light'
 export interface Icon {
   id: number
   name: string
-  svgCodeUrl: string
+  svgUrl: string
   library: string
 }
 

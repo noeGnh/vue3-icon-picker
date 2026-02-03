@@ -8,7 +8,7 @@ import type { Icon } from './types'
  * The list is an array of objects with following properties:
  * - id: number
  * - name: string
- * - svgCodeUrl: string
+ * - svgUrl: string
  * - library: string
  *
  * The composable returns an object with two properties:
@@ -70,7 +70,7 @@ export function useIconsLoader() {
       iconsList.value.push({
         id: i,
         name: name,
-        svgCodeUrl: `https://raw.githubusercontent.com/noeGnh/vue3-icon-picker/master/packages/vue3-icon-picker/src/assets/sicons/${library}/${name}.svg`,
+        svgUrl: `https://raw.githubusercontent.com/noeGnh/vue3-icon-picker/master/packages/vue3-icon-picker/src/assets/sicons/${library}/${name}.svg`,
         library: library,
       })
       i += 1

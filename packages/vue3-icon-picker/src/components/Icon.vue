@@ -82,8 +82,7 @@
 
         const iconsList = await prepareData()
 
-        const url =
-          iconsList?.find((icon) => icon.name == val)?.svgCodeUrl || ''
+        const url = iconsList?.find((icon) => icon.name == val)?.svgUrl || ''
 
         fetchData(url)
       }
