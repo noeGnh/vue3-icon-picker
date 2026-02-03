@@ -5,7 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.2.2](https://github.com/noeGnh/vue3-icon-picker/compare/v0.2.1...v0.2.2)
+## [v0.3.0](https://github.com/noeGnh/vue3-icon-picker/compare/v0.2.2...v0.3.0)
+
+### Commits
+
+- feat: update icon assets [`7994bb9`](https://github.com/noeGnh/vue3-icon-picker/commit/7994bb9fd8f40fee34db0ac0b9cfaf9f0f4af845)
+- fix: minor fix on prepareData [`005796b`](https://github.com/noeGnh/vue3-icon-picker/commit/005796bdd470056be8ac4303167d741f184457bd)
+- feat: add input size and theme support [`6a296ea`](https://github.com/noeGnh/vue3-icon-picker/commit/6a296ea00f4c390f2968400026ea43e0a92c4b9d)
+
+## [v0.2.2](https://github.com/noeGnh/vue3-icon-picker/compare/v0.2.1...v0.2.2) - 2026-02-02
 
 ### Commits
 
