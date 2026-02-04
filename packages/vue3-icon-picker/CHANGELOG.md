@@ -5,7 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.3.1](https://github.com/noeGnh/vue3-icon-picker/compare/v0.3.0...v0.3.1)
+## [v0.3.2](https://github.com/noeGnh/vue3-icon-picker/compare/v0.3.1...v0.3.2)
+
+### Merged
+
+- build(deps-dev): bump prettier from 2.8.8 to 3.8.1 [`#5`](https://github.com/noeGnh/vue3-icon-picker/pull/5)
+- build(deps-dev): bump unplugin-auto-import from 0.15.3 to 21.0.0 [`#2`](https://github.com/noeGnh/vue3-icon-picker/pull/2)
+- build(deps-dev): bump @types/node from 16.18.11 to 25.2.0 [`#1`](https://github.com/noeGnh/vue3-icon-picker/pull/1)
+- build(deps-dev): bump @vue/eslint-config-typescript from 11.0.3 to 13.0.0 [`#3`](https://github.com/noeGnh/vue3-icon-picker/pull/3)
+- build(deps-dev): bump @commitlint/cli from 17.8.1 to 20.4.1 [`#4`](https://github.com/noeGnh/vue3-icon-picker/pull/4)
+
+### Commits
+
+- build: update some dependencies [`845a691`](https://github.com/noeGnh/vue3-icon-picker/commit/845a69100773a36e58498600d72e6ed4a207e692)
+- build: upgrade some dependencies [`6d29351`](https://github.com/noeGnh/vue3-icon-picker/commit/6d29351746bc07c2f2449318c81ac9eb0859f3ad)
+- build(deps-dev): bump @vue/eslint-config-typescript [`8381c63`](https://github.com/noeGnh/vue3-icon-picker/commit/8381c63efc85faeeee22b3c9abd3f9636029eec1)
+
+## [v0.3.1](https://github.com/noeGnh/vue3-icon-picker/compare/v0.3.0...v0.3.1) - 2026-02-03
 
 ### Commits
 
