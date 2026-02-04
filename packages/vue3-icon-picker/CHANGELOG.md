@@ -5,7 +5,13 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v0.3.2](https://github.com/noeGnh/vue3-icon-picker/compare/v0.3.1...v0.3.2)
+## [v0.3.3](https://github.com/noeGnh/vue3-icon-picker/compare/v0.3.2...v0.3.3)
+
+### Commits
+
+- build: update glob [`a8f9986`](https://github.com/noeGnh/vue3-icon-picker/commit/a8f99865b93cdae314a4e04a71e2ec56c02b5644)
+
+## [v0.3.2](https://github.com/noeGnh/vue3-icon-picker/compare/v0.3.1...v0.3.2) - 2026-02-04
 
 ### Merged
 
