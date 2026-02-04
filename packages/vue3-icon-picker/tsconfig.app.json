@@ -1,5 +1,5 @@
 {
-  "extends": "@vue/tsconfig/tsconfig.web.json",
+  "extends": "@vue/tsconfig/tsconfig.dom.json",
   "include": ["src/env.d.ts", "src/**/*", "src/**/*.vue", "*.d.ts"],
   "exclude": ["src/**/__tests__/*"],
   "compilerOptions": {
@@ -13,6 +13,7 @@
     "rootDir": "src",
     "paths": {
       "@/*": ["./src/*"]
-    }
+    },
+    "verbatimModuleSyntax": true
   }
 }

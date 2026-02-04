@@ -31,7 +31,7 @@ export function useIconsLoader(): {
   const iconsList = ref<Icon[]>([])
 
   const extractIconData = (key: string) => {
-    const parts = key.split('_')
+    const parts: string[] = key.split('_')
 
     const realLibNames: { [key: string]: string } = {
       a: 'antd',
@@ -61,8 +61,8 @@ export function useIconsLoader(): {
     }
 
     return [
-      restoreIconFormat(parts.length > 1 ? parts[1] : parts[0]),
-      parts.length > 1 ? realLibNames[parts[0]] : '',
+      restoreIconFormat(parts.length > 1 ? parts[1]! : parts[0]!),
+      parts.length > 1 && parts[0] ? realLibNames[parts[0]] : '',
     ]
   }
 
@@ -90,13 +90,15 @@ export function useIconsLoader(): {
         await oneMoment()
       }
       const [name, library] = extractIconData(value)
-      iconsList.value.push({
-        id: i,
-        name: name,
-        svgUrl: `${ICONS_ASSETS_URL}/${library}/${name}.svg`,
-        library: library,
-      })
-      i += 1
+      if (name && library) {
+        iconsList.value.push({
+          id: i,
+          name: name,
+          svgUrl: `${ICONS_ASSETS_URL}/${library}/${name}.svg`,
+          library: library,
+        })
+        i += 1
+      }
     }
 
     return iconsList.value
@@ -129,7 +131,7 @@ export function isSVG(input: string): boolean {
       }
 
       const svgElements = doc.getElementsByTagName('svg')
-      return svgElements.length > 0 && svgElements[0].parentNode === doc
+      return svgElements.length > 0 && svgElements[0]?.parentNode === doc
     }
     return false
   } catch (e) {
