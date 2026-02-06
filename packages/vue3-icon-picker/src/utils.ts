@@ -61,7 +61,7 @@ export function useIconsLoader(): {
     }
 
     return [
-      restoreIconFormat(parts.length > 1 ? parts[1]! : parts[0]!),
+      restoreIconFormat((parts.length > 1 ? parts[1] : parts[0]) || ''),
       parts.length > 1 && parts[0] ? realLibNames[parts[0]] : '',
     ]
   }
