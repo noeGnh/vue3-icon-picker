@@ -23,6 +23,6 @@
     "vue3-icon-picker": "workspace:*"
   },
   "devDependencies": {
-    "vitepress": "^1.0.0-alpha.46"
+    "vitepress": "^1.6.4"
   }
 }
