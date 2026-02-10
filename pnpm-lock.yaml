@@ -19,7 +19,7 @@ importers:
         version: 20.4.1(@types/node@25.2.2)(typescript@5.9.3)
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^6.0.2
-        version: 6.0.2(@vue/compiler-sfc@3.5.27)(prettier@3.8.1)
+        version: 6.0.2(@vue/compiler-sfc@3.5.28)(prettier@3.8.1)
       '@tsconfig/node22':
         specifier: ^22.0.5
         version: 22.0.5
@@ -39,8 +39,8 @@ importers:
         specifier: ^3.5.28
         version: 3.5.28
       '@vue/compiler-sfc':
-        specifier: ^3.5.27
-        version: 3.5.27
+        specifier: ^3.5.28
+        version: 3.5.28
       '@vue/eslint-config-prettier':
         specifier: ^10.2.0
         version: 10.2.0(eslint@8.57.1)(prettier@3.8.1)
@@ -4938,7 +4938,7 @@ snapshots:
 
   '@standard-schema/spec@1.1.0': {}
 
-  '@trivago/prettier-plugin-sort-imports@6.0.2(@vue/compiler-sfc@3.5.27)(prettier@3.8.1)':
+  '@trivago/prettier-plugin-sort-imports@6.0.2(@vue/compiler-sfc@3.5.28)(prettier@3.8.1)':
     dependencies:
       '@babel/generator': 7.29.1
       '@babel/parser': 7.29.0
@@ -4950,7 +4950,7 @@ snapshots:
       parse-imports-exports: 0.2.4
       prettier: 3.8.1
     optionalDependencies:
-      '@vue/compiler-sfc': 3.5.27
+      '@vue/compiler-sfc': 3.5.28
     transitivePeerDependencies:
       - supports-color
 
