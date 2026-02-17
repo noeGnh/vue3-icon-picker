@@ -47,7 +47,7 @@
     "@sicons/material": "^0.13.0",
     "@sicons/tabler": "^0.13.0",
     "@types/lodash.uniqby": "^4.7.9",
-    "@types/node": "25.2.2",
+    "@types/node": "25.2.3",
     "auto-changelog": "^2.5.0",
     "glob": "^13.0.3",
     "svgo": "^4.0.0",
