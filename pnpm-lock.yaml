@@ -15,8 +15,8 @@ importers:
         specifier: ^20.4.1
         version: 20.4.1
       '@commitlint/prompt-cli':
-        specifier: ^20.4.1
-        version: 20.4.1(@types/node@25.2.3)(typescript@5.9.3)
+        specifier: ^20.4.2
+        version: 20.4.2(@types/node@25.2.3)(typescript@5.9.3)
       '@trivago/prettier-plugin-sort-imports':
         specifier: ^6.0.2
         version: 6.0.2(@vue/compiler-sfc@3.5.28)(prettier@3.8.1)
@@ -368,13 +368,13 @@ packages:
     resolution: {integrity: sha512-XNtZjeRcFuAfUnhYrCY02+mpxwY4OmnvD3ETbVPs25xJFFz1nRo/25nHj+5eM+zTeRFvWFwD4GXWU2JEtoK1/w==}
     engines: {node: '>=v18'}
 
-  '@commitlint/prompt-cli@20.4.1':
-    resolution: {integrity: sha512-5kivMX7Sq5PkxwTqhk/KmhKG52BHIoWvt2a6qY3g+9ZCls/lNjLw1HxMV+raeGk79K+eD/g/Tj+XWWkkzZkivA==}
+  '@commitlint/prompt-cli@20.4.2':
+    resolution: {integrity: sha512-WpawvoC0s+NoH6pZ75HTrwjRze0ZvrwkgoUlKT6FihmOGoPWX7cP7UZbM4pzx0LioxpHYyIt0FBpkH+gK0wcnA==}
     engines: {node: '>=v18'}
     hasBin: true
 
-  '@commitlint/prompt@20.4.1':
-    resolution: {integrity: sha512-dLXTdNnXiWyYPHM9a5gMpZrDTbjrwoJJGICD1aS4eCviw9yc8vNKoTytxR+oNb3xXS9i/0b4Ajhr1ALy996dMQ==}
+  '@commitlint/prompt@20.4.2':
+    resolution: {integrity: sha512-VLUm07fBE500E7u+29f7jg4LDbEQZpiKNlWhP5mB3Pz+AqqnSAK86u4jXKQItRSKcFFxZBvi0pvxJtDOQW1S5Q==}
     engines: {node: '>=v18'}
 
   '@commitlint/read@20.4.0':
@@ -2495,6 +2495,10 @@ packages:
     resolution: {integrity: sha512-QZjmEOC+IT1uk6Rx0sX22V6uHWVwbdbxf1faPqJ1QhLdGgsRGCZoyaQBm/piRdJy/D2um6hM1UP7ZEeQ4EkP+Q==}
     engines: {node: '>=18'}
 
+  get-east-asian-width@1.5.0:
+    resolution: {integrity: sha512-CQ+bEO+Tva/qlmw24dCejulK5pMzVnUOFOijVogd3KQs07HnRIgp8TGipvCCRT06xeYEbpbgwaCxglFyiuIcmA==}
+    engines: {node: '>=18'}
+
   get-intrinsic@1.3.0:
     resolution: {integrity: sha512-9fSjSaos/fRIVIp+xSJlE6lfwhES7LNtKaCBIamHsjr2na1BiABJPo0mOjjz8GJDURarmCPGqaiVg5mfjb98CQ==}
     engines: {node: '>= 0.4'}
@@ -3048,6 +3052,9 @@ packages:
   minimatch@3.1.2:
     resolution: {integrity: sha512-J7p63hRiAjw1NDEww1W7i37+ByIrOWO5XQQAzZ3VOcL0PNybwpfmV/N05zFAzwQ9USyEcX6t3UO+K5aqBQOIHw==}
 
+  minimatch@3.1.3:
+    resolution: {integrity: sha512-M2GCs7Vk83NxkUyQV1bkABc4yxgz9kILhHImZiBPAZ9ybuvCb0/H7lEl5XvIg3g+9d4eNotkZA5IWwYl0tibaA==}
+
   minimatch@9.0.1:
     resolution: {integrity: sha512-0jWhJpD/MdhPXwPuiRkCbfYfSKp2qnn2eOc279qI7f+osl/l+prKSrvhg157zSYvx/1nmgn2NqdT6k2Z7zSH9w==}
     engines: {node: '>=16 || 14 >=14.17'}
@@ -3556,8 +3563,8 @@ packages:
     resolution: {integrity: sha512-tsaTIkKW9b4N+AEj+SVA+WhJzV7/zMhcSu78mLKWSk7cXMOSHsBKFWUs0fWwq8QyK3MgJBQRX6Gbi4kYbdvGkQ==}
     engines: {node: '>=18'}
 
-  string-width@8.1.1:
-    resolution: {integrity: sha512-KpqHIdDL9KwYk22wEOg/VIqYbrnLeSApsKT/bSj6Ez7pn3CftUiLAv2Lccpq1ALcpLV9UX1Ppn92npZWu2w/aw==}
+  string-width@8.2.0:
+    resolution: {integrity: sha512-6hJPQ8N0V0P3SNmP6h2J99RLuzrWz2gvT7VnK5tKvrNqJoyS9W4/Fb8mo31UiPvy00z7DQXkP2hnKBVav76thw==}
     engines: {node: '>=20'}
 
   string.prototype.trim@1.2.10:
@@ -4360,16 +4367,16 @@ snapshots:
       conventional-changelog-angular: 8.1.0
       conventional-commits-parser: 6.2.1
 
-  '@commitlint/prompt-cli@20.4.1(@types/node@25.2.3)(typescript@5.9.3)':
+  '@commitlint/prompt-cli@20.4.2(@types/node@25.2.3)(typescript@5.9.3)':
     dependencies:
-      '@commitlint/prompt': 20.4.1(@types/node@25.2.3)(typescript@5.9.3)
+      '@commitlint/prompt': 20.4.2(@types/node@25.2.3)(typescript@5.9.3)
       inquirer: 9.3.8(@types/node@25.2.3)
       tinyexec: 1.0.2
     transitivePeerDependencies:
       - '@types/node'
       - typescript
 
-  '@commitlint/prompt@20.4.1(@types/node@25.2.3)(typescript@5.9.3)':
+  '@commitlint/prompt@20.4.2(@types/node@25.2.3)(typescript@5.9.3)':
     dependencies:
       '@commitlint/ensure': 20.4.1
       '@commitlint/load': 20.4.0(@types/node@25.2.3)(typescript@5.9.3)
@@ -5746,7 +5753,7 @@ snapshots:
   cli-truncate@5.1.1:
     dependencies:
       slice-ansi: 7.1.2
-      string-width: 8.1.1
+      string-width: 8.2.0
 
   cli-width@4.1.0: {}
 
@@ -6256,7 +6263,7 @@ snapshots:
       has: 1.0.4
       is-core-module: 2.16.1
       is-glob: 4.0.3
-      minimatch: 3.1.2
+      minimatch: 3.1.3
       object.values: 1.2.1
       resolve: 1.22.11
       semver: 6.3.1
@@ -6492,6 +6499,8 @@ snapshots:
   get-caller-file@2.0.5: {}
 
   get-east-asian-width@1.4.0: {}
+
+  get-east-asian-width@1.5.0: {}
 
   get-intrinsic@1.3.0:
     dependencies:
@@ -7143,6 +7152,11 @@ snapshots:
     dependencies:
       brace-expansion: 1.1.12
 
+  minimatch@3.1.3:
+    dependencies:
+      brace-expansion: 1.1.12
+    optional: true
+
   minimatch@9.0.1:
     dependencies:
       brace-expansion: 2.0.2
@@ -7688,9 +7702,9 @@ snapshots:
       get-east-asian-width: 1.4.0
       strip-ansi: 7.1.2
 
-  string-width@8.1.1:
+  string-width@8.2.0:
     dependencies:
-      get-east-asian-width: 1.4.0
+      get-east-asian-width: 1.5.0
       strip-ansi: 7.1.2
 
   string.prototype.trim@1.2.10:
