@@ -10,7 +10,7 @@
     "deploy": "gh-pages -d dist -b demo"
   },
   "dependencies": {
-    "vue": "^3.5.28",
+    "vue": "^3.5.29",
     "vue3-icon-picker": "workspace:*"
   },
   "devDependencies": {
