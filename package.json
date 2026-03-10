@@ -37,7 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "^20.4.2",
     "@commitlint/config-conventional": "^20.4.2",
-    "@commitlint/prompt-cli": "^20.4.2",
+    "@commitlint/prompt-cli": "^20.4.3",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@tsconfig/node22": "^22.0.5",
     "@types/node": "25.3.3",
@@ -45,7 +45,7 @@
     "@typescript-eslint/parser": "^5.62.0",
     "@vitejs/plugin-vue": "^6.0.4",
     "@vue/compiler-dom": "^3.5.30",
-    "@vue/compiler-sfc": "^3.5.29",
+    "@vue/compiler-sfc": "^3.5.30",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^13.0.0",
     "@vue/test-utils": "^2.4.6",
