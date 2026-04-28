@@ -9,7 +9,6 @@
     "outDir": "dist",
     "declarationDir": "types",
     "allowJs": true,
-    "baseUrl": ".",
     "rootDir": "src",
     "paths": {
       "@/*": ["./src/*"]
