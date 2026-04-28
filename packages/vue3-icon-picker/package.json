@@ -59,7 +59,7 @@
   "dependencies": {
     "@vueuse/core": "^14.2.1",
     "lodash.uniqby": "^4.7.0",
-    "vue-virtual-scroller": "2.0.1"
+    "vue-virtual-scroller": "3.0.0"
   },
   "repository": {
     "type": "git",
