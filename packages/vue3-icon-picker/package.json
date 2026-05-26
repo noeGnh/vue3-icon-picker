@@ -48,7 +48,7 @@
     "@sicons/tabler": "^0.13.0",
     "@types/lodash.uniqby": "^4.7.9",
     "@types/node": "25.9.0",
-    "auto-changelog": "^2.5.0",
+    "auto-changelog": "^2.5.1",
     "glob": "^13.0.6",
     "svgo": "^4.0.1",
     "terser": "^5.46.2",
