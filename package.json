@@ -37,7 +37,7 @@
   "devDependencies": {
     "@commitlint/cli": "^21.0.2",
     "@commitlint/config-conventional": "^21.0.2",
-    "@commitlint/prompt-cli": "^21.0.1",
+    "@commitlint/prompt-cli": "^21.0.2",
     "@trivago/prettier-plugin-sort-imports": "^6.0.2",
     "@tsconfig/node22": "^22.0.5",
     "@types/node": "25.9.1",
