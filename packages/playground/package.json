@@ -1,0 +1,21 @@
+{
+  "name": "playground",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "deploy": "gh-pages -d dist -b demo"
+  },
+  "dependencies": {
+    "vue": "^3.5.40",
+    "vue3-icon-picker": "workspace:*"
+  },
+  "devDependencies": {
+    "gh-pages": "^6.3.0",
+    "vite": "^8.0.16",
+    "vue-tsc": "^3.3.8"
+  }
+}

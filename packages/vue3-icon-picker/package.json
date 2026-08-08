@@ -1,0 +1,81 @@
+{
+  "name": "vue3-icon-picker",
+  "description": "Vue 3 icon picker",
+  "version": "0.3.3",
+  "private": false,
+  "author": "Noé Gnanih <noegnanih@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
+  "exports": {
+    ".": {
+      "types": "./types/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    },
+    "./*": "./*"
+  },
+  "typings": "types/index.d.ts",
+  "files": [
+    "dist",
+    "types",
+    "README.md"
+  ],
+  "scripts": {
+    "dev-server": "pnpm --parallel vite",
+    "dev-types": "vue-tsc  --noEmit -p tsconfig.app.json --watch",
+    "build": "pnpm build-lib && pnpm build-types",
+    "build-lib": "vite build",
+    "build-types": "rm -f *.tsbuildinfo && vue-tsc --emitDeclarationOnly --declaration -p tsconfig.app.json",
+    "lint": "eslint 'src/**/*.{ts,vue}'",
+    "test": "vitest",
+    "test-ci": "vitest --run",
+    "version": "auto-changelog --template keepachangelog --hide-credit -p && git add CHANGELOG.md",
+    "load-icon-assets": "tsx scripts/load-icon-assets.ts"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@sicons/antd": "^0.13.0",
+    "@sicons/carbon": "^0.13.0",
+    "@sicons/fa": "^0.13.0",
+    "@sicons/fluent": "^0.13.0",
+    "@sicons/ionicons4": "^0.13.0",
+    "@sicons/ionicons5": "^0.13.0",
+    "@sicons/material": "^0.13.0",
+    "@sicons/tabler": "^0.13.0",
+    "@types/lodash.uniqby": "^4.7.9",
+    "@types/node": "26.1.2",
+    "auto-changelog": "^2.6.0",
+    "glob": "^13.0.6",
+    "svgo": "^4.0.2",
+    "terser": "^5.49.0",
+    "tsx": "^4.23.1",
+    "vite": "^8.0.16",
+    "vitest": "^4.1.10"
+  },
+  "dependencies": {
+    "@vueuse/core": "^14.3.0",
+    "lodash.uniqby": "^4.7.0",
+    "vue-virtual-scroller": "3.0.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noeGnh/vue3-icon-picker.git"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "icon",
+    "picker"
+  ],
+  "bugs": {
+    "url": "https://github.com/noeGnh/vue3-icon-picker/issues"
+  },
+  "homepage": "https://github.com/noeGnh/vue3-icon-picker#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}
